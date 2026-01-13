@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MAXTRAVEL - Premium passenger transportation across Europe. Transfers, tours, corporate travel by modern minibuses.">
+    <meta name="keywords" content="transfers, transportation, Europe, minibus, Prague, Vienna, tours, airport transfer">
+    <title>MAXTRAVEL | Premium European Transfers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <span class="logo-max">MAX</span><span class="logo-travel">TRAVEL</span>
+            </a>
+            <nav class="nav" id="nav">
+                <a href="#home" class="nav-link" data-en="Home" data-cz="Domů">Home</a>
+                <a href="#services" class="nav-link" data-en="Services" data-cz="Služby">Services</a>
+                <a href="#fleet" class="nav-link" data-en="Fleet" data-cz="Vozový park">Fleet</a>
+                <a href="#routes" class="nav-link" data-en="Routes" data-cz="Trasy">Routes</a>
+                <a href="#contact" class="nav-link" data-en="Contact" data-cz="Kontakt">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="cz">CZ</button>
+                </div>
+                <a href="#contact" class="btn btn-primary btn-header" data-en="Book Now" data-cz="Rezervovat">Book Now</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title" data-en="Premium European Transfers" data-cz="Prémiové evropské transfery">Premium European Transfers</h1>
+                <p class="hero-subtitle" data-en="Safe. Fast. Comfortable." data-cz="Bezpečně. Rychle. Pohodlně.">Safe. Fast. Comfortable.</p>
+                <p class="hero-desc" data-en="Professional passenger transportation across Europe since 2015" data-cz="Profesionální přeprava cestujících po Evropě od roku 2015">Professional passenger transportation across Europe since 2015</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary btn-large" data-en="Book Transfer" data-cz="Rezervovat transfer">Book Transfer</a>
+                    <a href="https://wa.me/420735103830" target="_blank" class="btn btn-outline btn-large">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label" data-en="Years Experience" data-cz="Let zkušeností">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label" data-en="Countries" data-cz="Zemí">Countries</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5000+</span>
+                    <span class="stat-label" data-en="Happy Clients" data-cz="Spokojených klientů">Happy Clients</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="image-frame">
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=80" alt="MAXTRAVEL Team" loading="lazy">
+                    </div>
+                    <div class="experience-badge">
+                        <span class="badge-number">10</span>
+                        <span class="badge-text" data-en="Years of Excellence" data-cz="Let excelence">Years of Excellence</span>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-tag" data-en="About Us" data-cz="O nás">About Us</span>
+                    <h2 class="section-title" data-en="Your Trusted Travel Partner" data-cz="Váš důvěryhodný partner pro cestování">Your Trusted Travel Partner</h2>
+                    <p class="about-text" data-en="MAXTRAVEL has been providing premium passenger transportation across Europe since 2015. We specialize in transfers, tours, corporate travel, and event transportation." data-cz="MAXTRAVEL poskytuje prémiovou přepravu cestujících po Evropě od roku 2015. Specializujeme se na transfery, výlety, firemní cestování a přepravu na akce.">MAXTRAVEL has been providing premium passenger transportation across Europe since 2015. We specialize in transfers, tours, corporate travel, and event transportation.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <div class="feature-text">
+                                <h4 data-en="Safety First" data-cz="Bezpečnost na prvním místě">Safety First</h4>
+                                <p data-en="Licensed drivers, insured vehicles" data-cz="Licencovaní řidiči, pojištěná vozidla">Licensed drivers, insured vehicles</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                            </div>
+                            <div class="feature-text">
+                                <h4 data-en="24/7 Available" data-cz="Dostupní 24/7">24/7 Available</h4>
+                                <p data-en="Round-the-clock support" data-cz="Nepřetržitá podpora">Round-the-clock support</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            </div>
+                            <div class="feature-text">
+                                <h4 data-en="Premium Quality" data-cz="Prémiová kvalita">Premium Quality</h4>
+                                <p data-en="Modern fleet, top comfort" data-cz="Moderní vozový park, špičkový komfort">Modern fleet, top comfort</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-en="What We Offer" data-cz="Co nabízíme">What We Offer</span>
+                <h2 class="section-title" data-en="Our Services" data-cz="Naše služby">Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    </div>
+                    <h3 class="service-title" data-en="European Transfers" data-cz="Evropské transfery">European Transfers</h3>
+                    <p class="service-desc" data-en="Door-to-door transfers across Czech Republic and Europe" data-cz="Transfery od dveří ke dveřím po Česku a Evropě">Door-to-door transfers across Czech Republic and Europe</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/><path d="M14.05 2a9 9 0 018 7.94"/><path d="M14.05 6A5 5 0 0118 10"/></svg>
+                    </div>
+                    <h3 class="service-title" data-en="Airport Transfers" data-cz="Letištní transfery">Airport Transfers</h3>
+                    <p class="service-desc" data-en="Reliable airport pickup and drop-off services" data-cz="Spolehlivé vyzvednutí a dovoz na letiště">Reliable airport pickup and drop-off services</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 10-16 0c0 3 2.7 7 8 11.7z"/></svg>
+                    </div>
+                    <h3 class="service-title" data-en="Sightseeing Tours" data-cz="Poznávací výlety">Sightseeing Tours</h3>
+                    <p class="service-desc" data-en="Guided tours to Europe's most beautiful destinations" data-cz="Výlety s průvodcem na nejkrásnější místa Evropy">Guided tours to Europe's most beautiful destinations</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
+                    </div>
+                    <h3 class="service-title" data-en="Custom Routes" data-cz="Individuální trasy">Custom Routes</h3>
+                    <p class="service-desc" data-en="Personalized itineraries tailored to your needs" data-cz="Personalizované itineráře podle vašich potřeb">Personalized itineraries tailored to your needs</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                    </div>
+                    <h3 class="service-title" data-en="Group Travel" data-cz="Skupinové cestování">Group Travel</h3>
+                    <p class="service-desc" data-en="Comfortable transportation for groups of any size" data-cz="Pohodlná přeprava pro skupiny jakékoli velikosti">Comfortable transportation for groups of any size</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                    </div>
+                    <h3 class="service-title" data-en="Corporate Travel" data-cz="Firemní cestování">Corporate Travel</h3>
+                    <p class="service-desc" data-en="Business travel solutions for companies" data-cz="Řešení firemního cestování pro společnosti">Business travel solutions for companies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section class="fleet" id="fleet">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Our Vehicles" data-cz="Naše vozidla">Our Vehicles</span>
+                <h2 class="section-title" data-en="Modern Fleet" data-cz="Moderní vozový park">Modern Fleet</h2>
+            </div>
+            <div class="fleet-grid">
+                <div class="fleet-card">
+                    <div class="fleet-image">
+                        <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=500&q=80" alt="Mercedes Sprinter" loading="lazy">
+                        <div class="fleet-badge" data-en="8 Seats" data-cz="8 míst">8 Seats</div>
+                    </div>
+                    <div class="fleet-info">
+                        <h3 class="fleet-name">Mercedes Sprinter</h3>
+                        <div class="fleet-specs">
+                            <div class="spec">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                                <span>8 <span data-en="passengers" data-cz="cestujících">passengers</span></span>
+                            </div>
+                            <div class="spec">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+                                <span data-en="Air Conditioning" data-cz="Klimatizace">Air Conditioning</span>
+                            </div>
+                            <div class="spec">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                                <span data-en="Large Luggage" data-cz="Velký zavazadlový prostor">Large Luggage</span>
+                            </div>
+                        </div>
+                        <p class="fleet-use" data-en="Perfect for: Transfers, Tours" data-cz="Ideální pro: Transfery, Výlety">Perfect for: Transfers, Tours</p>
+                    </div>
+                </div>
+                <div class="fleet-card">
+                    <div class="fleet-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="VW Transporter" loading="lazy">
+                        <div class="fleet-badge" data-en="7 Seats" data-cz="7 míst">7 Seats</div>
+                    </div>
+                    <div class="fleet-info">
+                        <h3 class="fleet-name">VW Transporter</h3>
+                        <div class="fleet-specs">
+                            <div class="spec">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                                <span>7 <span data-en="passengers" data-cz="cestujících">passengers</span></span>
+                            </div>
+                            <div class="spec">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+                                <span data-en="Air Conditioning" data-cz="Klimatizace">Air Conditioning</span>
+                            </div>
+                            <div class="spec">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                                <span data-en="Medium Luggage" data-cz="Střední zavazadlový prostor">Medium Luggage</span>
+                            </div>
+                        </div>
+                        <p class="fleet-use" data-en="Perfect for: City Tours, Airports" data-cz="Ideální pro: Městské výlety, Letiště">Perfect for: City Tours, Airports</p>
+                    </div>
+                </div>
+                <div class="fleet-card">
+                    <div class="fleet-image">
+                        <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=500&q=80" alt="Mercedes V-Class" loading="lazy">
+                        <div class="fleet-badge" data-en="6 Seats" data-cz="6 míst">6 Seats</div>
+                    </div>
+                    <div class="fleet-info">
+                        <h3 class="fleet-name">Mercedes V-Class</h3>
+                        <div class="fleet-specs">
+                            <div class="spec">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                                <span>6 <span data-en="passengers" data-cz="cestujících">passengers</span></span>
+                            </div>
+                            <div class="spec">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+                                <span data-en="Climate Control" data-cz="Klimatizace">Climate Control</span>
+                            </div>
+                            <div class="spec">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <span data-en="Premium Interior" data-cz="Prémiový interiér">Premium Interior</span>
+                            </div>
+                        </div>
+                        <p class="fleet-use" data-en="Perfect for: VIP, Business" data-cz="Ideální pro: VIP, Business">Perfect for: VIP, Business</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Routes Section -->
+    <section class="routes" id="routes">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Where We Go" data-cz="Kam jezdíme">Where We Go</span>
+                <h2 class="section-title" data-en="Popular Routes" data-cz="Oblíbené trasy">Popular Routes</h2>
+            </div>
+            <div class="routes-content">
+                <div class="countries-grid">
+                    <div class="country-item">
+                        <span class="country-flag">🇨🇿</span>
+                        <span class="country-name" data-en="Czech Republic" data-cz="Česká republika">Czech Republic</span>
+                    </div>
+                    <div class="country-item">
+                        <span class="country-flag">🇩🇪</span>
+                        <span class="country-name" data-en="Germany" data-cz="Německo">Germany</span>
+                    </div>
+                    <div class="country-item">
+                        <span class="country-flag">🇦🇹</span>
+                        <span class="country-name" data-en="Austria" data-cz="Rakousko">Austria</span>
+                    </div>
+                    <div class="country-item">
+                        <span class="country-flag">🇵🇱</span>
+                        <span class="country-name" data-en="Poland" data-cz="Polsko">Poland</span>
+                    </div>
+                    <div class="country-item">
+                        <span class="country-flag">🇭🇺</span>
+                        <span class="country-name" data-en="Hungary" data-cz="Maďarsko">Hungary</span>
+                    </div>
+                    <div class="country-item">
+                        <span class="country-flag">🇸🇰</span>
+                        <span class="country-name" data-en="Slovakia" data-cz="Slovensko">Slovakia</span>
+                    </div>
+                    <div class="country-item">
+                        <span class="country-flag">🇱🇹</span>
+                        <span class="country-name" data-en="Lithuania" data-cz="Litva">Lithuania</span>
+                    </div>
+                    <div class="country-item">
+                        <span class="country-flag">🇭🇷</span>
+                        <span class="country-name" data-en="Croatia" data-cz="Chorvatsko">Croatia</span>
+                    </div>
+                    <div class="country-item">
+                        <span class="country-flag">🇫🇷</span>
+                        <span class="country-name" data-en="France" data-cz="Francie">France</span>
+                    </div>
+                    <div class="country-item">
+                        <span class="country-flag">🇨🇭</span>
+                        <span class="country-name" data-en="Switzerland" data-cz="Švýcarsko">Switzerland</span>
+                    </div>
+                </div>
+                <div class="popular-routes">
+                    <h3 class="routes-subtitle" data-en="Most Requested" data-cz="Nejžádanější">Most Requested</h3>
+                    <div class="route-list">
+                        <div class="route-item">
+                            <span class="route-from">Praha</span>
+                            <span class="route-arrow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+                            </span>
+                            <span class="route-to">Wien</span>
+                        </div>
+                        <div class="route-item">
+                            <span class="route-from">Praha</span>
+                            <span class="route-arrow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+                            </span>
+                            <span class="route-to">München</span>
+                        </div>
+                        <div class="route-item">
+                            <span class="route-from">Praha</span>
+                            <span class="route-arrow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+                            </span>
+                            <span class="route-to">Berlin</span>
+                        </div>
+                        <div class="route-item">
+                            <span class="route-from">Praha</span>
+                            <span class="route-arrow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+                            </span>
+                            <span class="route-to">Budapest</span>
+                        </div>
+                        <div class="route-item">
+                            <span class="route-from">Praha</span>
+                            <span class="route-arrow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+                            </span>
+                            <span class="route-to">Kraków</span>
+                        </div>
+                        <div class="route-item">
+                            <span class="route-from">Praha</span>
+                            <span class="route-arrow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+                            </span>
+                            <span class="route-to">Salzburg</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-en="Testimonials" data-cz="Reference">Testimonials</span>
+                <h2 class="section-title" data-en="What Clients Say" data-cz="Co říkají klienti">What Clients Say</h2>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text" data-en="Excellent service! The driver was punctual, professional, and the vehicle was spotless. Highly recommend for airport transfers." data-cz="Vynikající služba! Řidič byl přesný, profesionální a vozidlo bylo čisté. Velmi doporučuji pro letištní transfery.">Excellent service! The driver was punctual, professional, and the vehicle was spotless. Highly recommend for airport transfers.</p>
+                    <div class="review-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <span class="author-name">Martin K.</span>
+                            <span class="author-location">Praha</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text" data-en="We booked a tour to Vienna and it was perfect. Comfortable ride, great communication. Will use again!" data-cz="Objednali jsme si výlet do Vídně a bylo to perfektní. Pohodlná jízda, skvělá komunikace. Určitě využijeme znovu!">We booked a tour to Vienna and it was perfect. Comfortable ride, great communication. Will use again!</p>
+                    <div class="review-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <span class="author-name">Anna S.</span>
+                            <span class="author-location">Brno</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text" data-en="Professional corporate transportation for our company. Reliable, on-time, and excellent vehicles. Strongly recommended." data-cz="Profesionální firemní přeprava pro naši společnost. Spolehlivé, včasné a vynikající vozidla. Vřele doporučuji.">Professional corporate transportation for our company. Reliable, on-time, and excellent vehicles. Strongly recommended.</p>
+                    <div class="review-author">
+                        <div class="author-avatar">P</div>
+                        <div class="author-info">
+                            <span class="author-name">Petr N.</span>
+                            <span class="author-location">Ostrava</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-tag" data-en="Get in Touch" data-cz="Kontaktujte nás">Get in Touch</span>
+                    <h2 class="section-title" data-en="Book Your Transfer" data-cz="Rezervujte svůj transfer">Book Your Transfer</h2>
+                    <p class="contact-desc" data-en="Ready to travel? Contact us via phone, messenger, or fill out the form. We respond within 30 minutes." data-cz="Připraveni cestovat? Kontaktujte nás telefonicky, přes messenger nebo vyplňte formulář. Odpovídáme do 30 minut.">Ready to travel? Contact us via phone, messenger, or fill out the form. We respond within 30 minutes.</p>
+                    
+                    <div class="contact-methods">
+                        <a href="tel:+420776384669" class="contact-method">
+                            <div class="method-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-label" data-en="Phone" data-cz="Telefon">Phone</span>
+                                <span class="method-value">+420 776 384 669</span>
+                            </div>
+                        </a>
+                        <a href="tel:+420739321218" class="contact-method">
+                            <div class="method-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-label" data-en="Phone" data-cz="Telefon">Phone</span>
+                                <span class="method-value">+420 739 321 218</span>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/420735103830" target="_blank" class="contact-method whatsapp">
+                            <div class="method-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-label">WhatsApp</span>
+                                <span class="method-value">+420 735 103 830</span>
+                            </div>
+                        </a>
+                        <a href="mailto:dmitropirogov5@gmail.com" class="contact-method">
+                            <div class="method-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-label">Email</span>
+                                <span class="method-value">dmitropirogov5@gmail.com</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="TikTok">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <h3 class="form-title" data-en="Quick Request" data-cz="Rychlá poptávka">Quick Request</h3>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Name" required data-placeholder-en="Name" data-placeholder-cz="Jméno">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Phone" required data-placeholder-en="Phone" data-placeholder-cz="Telefon">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="route" placeholder="Route (e.g., Prague → Vienna)" data-placeholder-en="Route (e.g., Prague → Vienna)" data-placeholder-cz="Trasa (např. Praha → Vídeň)">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="date" name="date" placeholder="Date">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="passengers" placeholder="Passengers" min="1" max="20" data-placeholder-en="Passengers" data-placeholder-cz="Cestujících">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Additional info" rows="3" data-placeholder-en="Additional info" data-placeholder-cz="Další informace"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full" data-en="Send Request" data-cz="Odeslat poptávku">Send Request</button>
+                    </form>
+                    <div class="messenger-buttons">
+                        <a href="https://wa.me/420735103830" target="_blank" class="messenger-btn whatsapp">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            WhatsApp
+                        </a>
+                        <a href="https://t.me/+420735103830" target="_blank" class="messenger-btn telegram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                            Telegram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-max">MAX</span><span class="logo-travel">TRAVEL</span>
+                    </a>
+                    <p class="footer-desc" data-en="Premium passenger transportation across Europe since 2015." data-cz="Prémiová přeprava cestujících po Evropě od roku 2015.">Premium passenger transportation across Europe since 2015.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 data-en="Quick Links" data-cz="Rychlé odkazy">Quick Links</h4>
+                    <a href="#services" data-en="Services" data-cz="Služby">Services</a>
+                    <a href="#fleet" data-en="Fleet" data-cz="Vozový park">Fleet</a>
+                    <a href="#routes" data-en="Routes" data-cz="Trasy">Routes</a>
+                    <a href="#contact" data-en="Contact" data-cz="Kontakt">Contact</a>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-en="Contact" data-cz="Kontakt">Contact</h4>
+                    <p>+420 776 384 669</p>
+                    <p>+420 739 321 218</p>
+                    <p>dmitropirogov5@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 MAXTRAVEL. <span data-en="All rights reserved." data-cz="Všechna práva vyhrazena.">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
