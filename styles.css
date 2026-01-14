@@ -690,7 +690,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .fleet-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
 }
 
@@ -1242,6 +1242,10 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .fleet-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .services-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     
