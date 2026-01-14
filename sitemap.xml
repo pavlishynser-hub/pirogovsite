@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Homepage -->
+    <url>
+        <loc>https://pavlishynser-hub.github.io/pirogovsite/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pavlishynser-hub.github.io/pirogovsite/"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://pavlishynser-hub.github.io/pirogovsite/?lang=cz"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://pavlishynser-hub.github.io/pirogovsite/"/>
+        <lastmod>2026-01-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://pavlishynser-hub.github.io/pirogovsite/images/team.jpg</image:loc>
+            <image:title>MAXTRAVEL Team - Premium European Transfers</image:title>
+            <image:caption>Professional passenger transportation team since 2015</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://pavlishynser-hub.github.io/pirogovsite/images/bus1.jpg</image:loc>
+            <image:title>Ford Transit Custom 2022 - MAXTRAVEL Fleet</image:title>
+            <image:caption>Modern 7+1 passenger minibus for transfers and tours</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://pavlishynser-hub.github.io/pirogovsite/images/bus2.jpg</image:loc>
+            <image:title>Renault Trafic 2025 - MAXTRAVEL Fleet</image:title>
+            <image:caption>Comfortable 8+1 passenger minibus for European transfers</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://pavlishynser-hub.github.io/pirogovsite/images/bus3.jpg</image:loc>
+            <image:title>Renault Trafic 2024 - MAXTRAVEL Fleet</image:title>
+            <image:caption>Premium minibus for VIP and business travel</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Services Section -->
+    <url>
+        <loc>https://pavlishynser-hub.github.io/pirogovsite/#services</loc>
+        <lastmod>2026-01-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Fleet Section -->
+    <url>
+        <loc>https://pavlishynser-hub.github.io/pirogovsite/#fleet</loc>
+        <lastmod>2026-01-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Routes Section -->
+    <url>
+        <loc>https://pavlishynser-hub.github.io/pirogovsite/#routes</loc>
+        <lastmod>2026-01-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Contact Section -->
+    <url>
+        <loc>https://pavlishynser-hub.github.io/pirogovsite/#contact</loc>
+        <lastmod>2026-01-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+</urlset>
+

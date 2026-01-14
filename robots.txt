@@ -1,0 +1,30 @@
+# MAXTRAVEL Robots.txt
+# https://pavlishynser-hub.github.io/pirogovsite/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://pavlishynser-hub.github.io/pirogovsite/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Block common bot paths (if any)
+Disallow: /private/
+Disallow: /admin/
+Disallow: /*.json$
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
