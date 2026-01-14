@@ -8,7 +8,59 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initContactForm();
     initScrollAnimations();
+    initClientCounter();
 });
+
+// ===== Dynamic Client Counter =====
+function initClientCounter() {
+    // Start date: January 14, 2026
+    const startDate = new Date('2026-01-14');
+    const baseClients = 5000;
+    const dailyIncrease = 10;
+    
+    // Calculate days since start
+    const today = new Date();
+    const timeDiff = today - startDate;
+    const daysPassed = Math.max(0, Math.floor(timeDiff / (1000 * 60 * 60 * 24)));
+    
+    // Calculate total clients
+    const totalClients = baseClients + (daysPassed * dailyIncrease);
+    
+    // Find and update the client counter
+    const statNumbers = document.querySelectorAll('.stat-number');
+    statNumbers.forEach(stat => {
+        if (stat.textContent.includes('5000')) {
+            stat.textContent = totalClients.toLocaleString() + '+';
+            
+            // Animate the number counting up
+            animateCounter(stat, totalClients);
+        }
+    });
+}
+
+// Animate counter from 0 to target
+function animateCounter(element, target) {
+    const duration = 2000; // 2 seconds
+    const start = 0;
+    const startTime = performance.now();
+    
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(start + (target - start) * easeOut);
+        
+        element.textContent = current.toLocaleString() + '+';
+        
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        }
+    }
+    
+    requestAnimationFrame(update);
+}
 
 // ===== Language Switcher =====
 function initLanguageSwitcher() {
