@@ -16,7 +16,7 @@
     --text-muted: #6b6b7a;
     
     --border-color: rgba(255, 255, 255, 0.08);
-    --border-accent: rgba(255, 107, 44, 0.3);
+    --border-accent: rgba(255, 215, 0, 0.3);
     
     /* Fonts */
     --font-display: 'Orbitron', sans-serif;
@@ -1435,5 +1435,121 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-success p {
     color: var(--text-muted);
+}
+
+/* ===== Shimmer/Gloss Effects ===== */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes glow-pulse {
+    0%, 100% {
+        box-shadow: 0 0 5px var(--accent-glow), 0 0 10px var(--accent-glow);
+    }
+    50% {
+        box-shadow: 0 0 15px var(--accent-glow), 0 0 30px var(--accent-glow), 0 0 45px var(--accent-glow);
+    }
+}
+
+/* Shimmer on buttons */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+}
+
+/* Shimmer on logo */
+.logo-travel {
+    position: relative;
+    background: linear-gradient(
+        90deg,
+        var(--accent-primary) 0%,
+        var(--accent-secondary) 25%,
+        #fff 50%,
+        var(--accent-secondary) 75%,
+        var(--accent-primary) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+}
+
+/* Glow on service icons hover */
+.service-card:hover .service-icon {
+    animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Shimmer on fleet badges */
+.fleet-badge {
+    position: relative;
+    overflow: hidden;
+}
+
+.fleet-badge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.5s infinite;
+    pointer-events: none;
+}
+
+/* Subtle glow on stat numbers */
+.stat-number {
+    text-shadow: 0 0 20px var(--accent-glow), 0 0 40px var(--accent-glow);
+}
+
+/* Experience badge glow */
+.experience-badge {
+    animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Shimmer on section dividers */
+.services::before,
+.routes::before,
+.contact::before {
+    animation: shimmer 5s linear infinite;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--accent-primary) 25%,
+        var(--accent-secondary) 50%,
+        var(--accent-primary) 75%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
 }
 
