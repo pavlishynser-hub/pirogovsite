@@ -620,6 +620,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .service-card {
+    display: block;
     padding: 40px 30px;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -628,6 +629,9 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transition-medium);
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 
 .service-card::before {
@@ -695,11 +699,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .fleet-card {
+    display: block;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
     transition: var(--transition-medium);
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 
 .fleet-card:hover {
