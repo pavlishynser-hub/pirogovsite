@@ -1059,7 +1059,45 @@ h1, h2, h3, h4, h5, h6 {
 .social-link:hover {
     border-color: var(--accent-primary);
     color: var(--accent-primary);
-    background: rgba(255, 107, 44, 0.1);
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.social-link.telegram-group {
+    background: rgba(0, 136, 204, 0.1);
+    border-color: #0088cc;
+    color: #0088cc;
+}
+
+.social-link.telegram-group:hover {
+    background: #0088cc;
+    color: white;
+}
+
+.telegram-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #0088cc, #00a8e8);
+    border-radius: 8px;
+    color: white;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition-medium);
+    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+}
+
+.telegram-banner:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 136, 204, 0.4);
+}
+
+.telegram-banner svg {
+    flex-shrink: 0;
 }
 
 .contact-form-wrapper {
