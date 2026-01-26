@@ -1,11 +1,11 @@
 # MAXTRAVEL Robots.txt
-# https://pavlishynser-hub.github.io/pirogovsite/
+# https://maxtravel.company/
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://pavlishynser-hub.github.io/pirogovsite/sitemap.xml
+Sitemap: https://maxtravel.company/sitemap.xml
 
 # Crawl-delay for polite crawling
 Crawl-delay: 1
