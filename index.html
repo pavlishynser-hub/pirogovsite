@@ -55,6 +55,33 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="MAXTRAVEL">
     
+    <!-- Google Tag Manager DataLayer -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+    </script>
+    
+    <!-- Google Analytics 4 (вставь свой ID) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script> -->
+    
+    <!-- Facebook Pixel (вставь свой ID) -->
+    <!-- <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script> -->
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -422,12 +449,24 @@
                 <h2 class="section-title" data-en="Modern Fleet" data-cz="Moderní vozový park">Modern Fleet</h2>
             </div>
             <div class="fleet-grid">
-                <a href="#contact" class="fleet-card">
-                    <div class="fleet-image">
-                        <img src="images/bus1.jpg" alt="Ford Transit Custom 2022" loading="lazy">
+                <!-- Ford Transit Custom -->
+                <div class="fleet-card">
+                    <div class="fleet-image-slider">
+                        <div class="slider-track">
+                            <img src="images/bus1.jpg" alt="Ford Transit Custom 2022" loading="lazy">
+                            <img src="images/ford-interior.jpg" alt="Ford Transit Custom Interior" loading="lazy">
+                            <img src="images/ford-interior2.jpg" alt="Ford Transit Custom Interior 2" loading="lazy">
+                        </div>
+                        <button class="slider-btn slider-prev" aria-label="Previous">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+                        </button>
+                        <button class="slider-btn slider-next" aria-label="Next">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+                        </button>
+                        <div class="slider-dots"></div>
                         <div class="fleet-badge" data-en="7+1 Seats" data-cz="7+1 míst">7+1 Seats</div>
                     </div>
-                    <div class="fleet-info">
+                    <a href="#contact" class="fleet-info">
                         <h3 class="fleet-name">Ford Transit Custom 2022</h3>
                         <div class="fleet-specs">
                             <div class="spec">
@@ -444,14 +483,27 @@
                             </div>
                         </div>
                         <p class="fleet-use" data-en="Perfect for: Transfers, Tours" data-cz="Ideální pro: Transfery, Výlety">Perfect for: Transfers, Tours</p>
-                    </div>
-                </a>
-                <a href="#contact" class="fleet-card">
-                    <div class="fleet-image">
-                        <img src="images/bus2.jpg" alt="Renault Trafic 2025" loading="lazy">
+                    </a>
+                </div>
+
+                <!-- Renault Trafic 2025 #1 -->
+                <div class="fleet-card">
+                    <div class="fleet-image-slider">
+                        <div class="slider-track">
+                            <img src="images/bus2.jpg" alt="Renault Trafic 2025" loading="lazy">
+                            <img src="images/renault-interior1.jpg" alt="Renault Trafic Interior" loading="lazy">
+                            <img src="images/renault-interior2.jpg" alt="Renault Trafic Interior 2" loading="lazy">
+                        </div>
+                        <button class="slider-btn slider-prev" aria-label="Previous">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+                        </button>
+                        <button class="slider-btn slider-next" aria-label="Next">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+                        </button>
+                        <div class="slider-dots"></div>
                         <div class="fleet-badge" data-en="8+1 Seats" data-cz="8+1 míst">8+1 Seats</div>
                     </div>
-                    <div class="fleet-info">
+                    <a href="#contact" class="fleet-info">
                         <h3 class="fleet-name">Renault Trafic 2025 L2 H2 (long/maxi)</h3>
                         <div class="fleet-specs">
                             <div class="spec">
@@ -468,14 +520,27 @@
                             </div>
                         </div>
                         <p class="fleet-use" data-en="Perfect for: City Tours, Airports" data-cz="Ideální pro: Městské výlety, Letiště">Perfect for: City Tours, Airports</p>
-                    </div>
-                </a>
-                <a href="#contact" class="fleet-card">
-                    <div class="fleet-image">
-                        <img src="images/bus3.jpg" alt="Renault Trafic 2024" loading="lazy">
+                    </a>
+                </div>
+
+                <!-- Renault Trafic 2024 -->
+                <div class="fleet-card">
+                    <div class="fleet-image-slider">
+                        <div class="slider-track">
+                            <img src="images/bus3.jpg" alt="Renault Trafic 2024" loading="lazy">
+                            <img src="images/renault-interior1.jpg" alt="Renault Trafic Interior" loading="lazy">
+                            <img src="images/renault-interior2.jpg" alt="Renault Trafic Interior 2" loading="lazy">
+                        </div>
+                        <button class="slider-btn slider-prev" aria-label="Previous">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+                        </button>
+                        <button class="slider-btn slider-next" aria-label="Next">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+                        </button>
+                        <div class="slider-dots"></div>
                         <div class="fleet-badge" data-en="8+1 Seats" data-cz="8+1 míst">8+1 Seats</div>
                     </div>
-                    <div class="fleet-info">
+                    <a href="#contact" class="fleet-info">
                         <h3 class="fleet-name">Renault Trafic 2024 L2 H2 long</h3>
                         <div class="fleet-specs">
                             <div class="spec">
@@ -492,14 +557,27 @@
                             </div>
                         </div>
                         <p class="fleet-use" data-en="Perfect for: VIP, Business" data-cz="Ideální pro: VIP, Business">Perfect for: VIP, Business</p>
-                    </div>
-                </a>
-                <a href="#contact" class="fleet-card">
-                    <div class="fleet-image">
-                        <img src="images/bus2.jpg" alt="Renault Trafic 2025" loading="lazy">
+                    </a>
+                </div>
+
+                <!-- Renault Trafic 2025 #2 -->
+                <div class="fleet-card">
+                    <div class="fleet-image-slider">
+                        <div class="slider-track">
+                            <img src="images/bus2.jpg" alt="Renault Trafic 2025" loading="lazy">
+                            <img src="images/renault-interior1.jpg" alt="Renault Trafic Interior" loading="lazy">
+                            <img src="images/renault-interior2.jpg" alt="Renault Trafic Interior 2" loading="lazy">
+                        </div>
+                        <button class="slider-btn slider-prev" aria-label="Previous">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+                        </button>
+                        <button class="slider-btn slider-next" aria-label="Next">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+                        </button>
+                        <div class="slider-dots"></div>
                         <div class="fleet-badge" data-en="8+1 Seats" data-cz="8+1 míst">8+1 Seats</div>
                     </div>
-                    <div class="fleet-info">
+                    <a href="#contact" class="fleet-info">
                         <h3 class="fleet-name">Renault Trafic 2025 L2 H2 (long/maxi)</h3>
                         <div class="fleet-specs">
                             <div class="spec">
@@ -516,8 +594,8 @@
                             </div>
                         </div>
                         <p class="fleet-use" data-en="Perfect for: Transfers, Tours" data-cz="Ideální pro: Transfery, Výlety">Perfect for: Transfers, Tours</p>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -616,6 +694,13 @@
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
                             </span>
                             <span class="route-to">Salzburg</span>
+                        </div>
+                        <div class="route-item">
+                            <span class="route-from">Praha</span>
+                            <span class="route-arrow">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+                            </span>
+                            <span class="route-to">Świnoujście</span>
                         </div>
                     </div>
                 </div>
@@ -777,6 +862,48 @@
         </div>
     </section>
 
+    <!-- Compact Reviews Section -->
+    <section class="reviews-compact">
+        <div class="container">
+            <div class="reviews-compact-header">
+                <div class="rating-badge">
+                    <span class="rating-stars">★★★★★</span>
+                    <span class="rating-score">5.0</span>
+                    <span class="rating-count" data-en="127 reviews" data-cz="127 recenzí">127 reviews</span>
+                </div>
+                <h3 data-en="Trusted by thousands of travelers" data-cz="Důvěřují nám tisíce cestujících">Trusted by thousands of travelers</h3>
+                <button class="btn btn-primary btn-write-review" id="openReviewModal" data-en="Write a Review" data-cz="Napsat recenzi">Write a Review</button>
+            </div>
+            <div class="reviews-compact-slider">
+                <div class="review-mini">
+                    <div class="review-mini-stars">★★★★★</div>
+                    <p data-en="Perfect transfer to Vienna! Professional driver, clean car." data-cz="Perfektní transfer do Vídně! Profesionální řidič, čisté auto.">"Perfect transfer to Vienna! Professional driver, clean car."</p>
+                    <span class="review-mini-author">— Martin K., Praha</span>
+                </div>
+                <div class="review-mini">
+                    <div class="review-mini-stars">★★★★★</div>
+                    <p data-en="Excellent service for our company. Always on time!" data-cz="Vynikající služby pro naši firmu. Vždy včas!">"Excellent service for our company. Always on time!"</p>
+                    <span class="review-mini-author">— Anna S., Brno</span>
+                </div>
+                <div class="review-mini">
+                    <div class="review-mini-stars">★★★★★</div>
+                    <p data-en="Best airport transfer in Prague. Highly recommend!" data-cz="Nejlepší letištní transfer v Praze. Vřele doporučuji!">"Best airport transfer in Prague. Highly recommend!"</p>
+                    <span class="review-mini-author">— Petr N., Ostrava</span>
+                </div>
+                <div class="review-mini">
+                    <div class="review-mini-stars">★★★★★</div>
+                    <p data-en="Comfortable ride to Munich. Great communication!" data-cz="Pohodlná jízda do Mnichova. Skvělá komunikace!">"Comfortable ride to Munich. Great communication!"</p>
+                    <span class="review-mini-author">— Jana M., Plzeň</span>
+                </div>
+                <div class="review-mini">
+                    <div class="review-mini-stars">★★★★★</div>
+                    <p data-en="Used for Świnoujście trip. Perfect service!" data-cz="Využili jsme pro cestu do Świnoujście. Perfektní služby!">"Used for Świnoujście trip. Perfect service!"</p>
+                    <span class="review-mini-author">— Tomáš V., Praha</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -807,6 +934,93 @@
         </div>
     </footer>
 
+    <!-- Image Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Close">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <button class="lightbox-btn lightbox-prev" aria-label="Previous">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        </button>
+        <button class="lightbox-btn lightbox-next" aria-label="Next">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="Full size image" id="lightboxImage">
+        </div>
+        <div class="lightbox-counter">
+            <span id="lightboxCurrent">1</span> / <span id="lightboxTotal">3</span>
+        </div>
+    </div>
+
+    <!-- Review Modal -->
+    <div class="modal-overlay" id="reviewModal">
+        <div class="modal">
+            <button class="modal-close" id="closeReviewModal" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <h3 class="modal-title" data-en="Share Your Experience" data-cz="Podělte se o svou zkušenost">Share Your Experience</h3>
+            <p class="modal-subtitle" data-en="Your feedback helps us improve our service" data-cz="Vaše zpětná vazba nám pomáhá zlepšovat naše služby">Your feedback helps us improve our service</p>
+            
+            <form class="review-form" id="reviewForm">
+                <div class="form-group">
+                    <label data-en="Your Name" data-cz="Vaše jméno">Your Name</label>
+                    <input type="text" name="reviewName" required placeholder="e.g., Martin" data-placeholder-en="e.g., Martin" data-placeholder-cz="např. Martin">
+                </div>
+                <div class="form-group">
+                    <label data-en="City" data-cz="Město">City</label>
+                    <input type="text" name="reviewCity" required placeholder="e.g., Praha" data-placeholder-en="e.g., Praha" data-placeholder-cz="např. Praha">
+                </div>
+                <div class="form-group">
+                    <label data-en="Your Rating" data-cz="Vaše hodnocení">Your Rating</label>
+                    <div class="star-rating" id="starRating">
+                        <input type="radio" name="rating" value="5" id="star5" required><label for="star5" title="5 stars">★</label>
+                        <input type="radio" name="rating" value="4" id="star4"><label for="star4" title="4 stars">★</label>
+                        <input type="radio" name="rating" value="3" id="star3"><label for="star3" title="3 stars">★</label>
+                        <input type="radio" name="rating" value="2" id="star2"><label for="star2" title="2 stars">★</label>
+                        <input type="radio" name="rating" value="1" id="star1"><label for="star1" title="1 star">★</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-en="Your Review" data-cz="Vaše recenze">Your Review</label>
+                    <textarea name="reviewText" required rows="4" placeholder="Tell us about your experience..." data-placeholder-en="Tell us about your experience..." data-placeholder-cz="Řekněte nám o své zkušenosti..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full" data-en="Submit Review" data-cz="Odeslat recenzi">Submit Review</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyAdlLlPKD5I-9VIec9cHYcFG8Kvjug4NMA",
+            authDomain: "maxtravel-reviews.firebaseapp.com",
+            projectId: "maxtravel-reviews",
+            storageBucket: "maxtravel-reviews.firebasestorage.app",
+            messagingSenderId: "19147198294",
+            appId: "1:19147198294:web:24013eb8a9529d699f10f7"
+        };
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        
+        // Make Firebase available globally
+        window.firebaseDB = db;
+        window.firebaseAddDoc = addDoc;
+        window.firebaseCollection = collection;
+        window.firebaseGetDocs = getDocs;
+        window.firebaseQuery = query;
+        window.firebaseOrderBy = orderBy;
+        window.firebaseLimit = limit;
+        
+        // Dispatch event when Firebase is ready
+        window.dispatchEvent(new Event('firebaseReady'));
+    </script>
+    
     <script src="script.js"></script>
 </body>
 </html>
