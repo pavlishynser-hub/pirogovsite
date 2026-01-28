@@ -8,8 +8,9 @@
         <loc>https://maxtravel.company/</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://maxtravel.company/"/>
         <xhtml:link rel="alternate" hreflang="cs" href="https://maxtravel.company/?lang=cz"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://maxtravel.company/?lang=ua"/>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://maxtravel.company/"/>
-        <lastmod>2026-01-14</lastmod>
+        <lastmod>2026-01-28</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
@@ -34,10 +35,70 @@
         </image:image>
     </url>
     
+    <!-- Blog Main Page -->
+    <url>
+        <loc>https://maxtravel.company/blog.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://maxtravel.company/blog.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://maxtravel.company/blog.html?lang=cz"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://maxtravel.company/blog.html?lang=ua"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://maxtravel.company/blog.html"/>
+        <lastmod>2026-01-28</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Blog Article: Prague Airport Transfer -->
+    <url>
+        <loc>https://maxtravel.company/blog.html#article-prague-airport-full</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Blog Article: Prague to Vienna -->
+    <url>
+        <loc>https://maxtravel.company/blog.html#article-vienna-full</loc>
+        <lastmod>2026-01-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Blog Article: Český Krumlov -->
+    <url>
+        <loc>https://maxtravel.company/blog.html#article-krumlov-full</loc>
+        <lastmod>2026-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Blog Article: Prague to Munich -->
+    <url>
+        <loc>https://maxtravel.company/blog.html#article-munich-full</loc>
+        <lastmod>2026-01-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Blog Article: Travel Tips -->
+    <url>
+        <loc>https://maxtravel.company/blog.html#article-tips-full</loc>
+        <lastmod>2026-01-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Blog Article: Karlovy Vary -->
+    <url>
+        <loc>https://maxtravel.company/blog.html#article-karlovy-full</loc>
+        <lastmod>2025-12-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
     <!-- Services Section -->
     <url>
         <loc>https://maxtravel.company/#services</loc>
-        <lastmod>2026-01-14</lastmod>
+        <lastmod>2026-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -45,7 +106,7 @@
     <!-- Fleet Section -->
     <url>
         <loc>https://maxtravel.company/#fleet</loc>
-        <lastmod>2026-01-14</lastmod>
+        <lastmod>2026-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -53,7 +114,7 @@
     <!-- Routes Section -->
     <url>
         <loc>https://maxtravel.company/#routes</loc>
-        <lastmod>2026-01-14</lastmod>
+        <lastmod>2026-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -61,10 +122,9 @@
     <!-- Contact Section -->
     <url>
         <loc>https://maxtravel.company/#contact</loc>
-        <lastmod>2026-01-14</lastmod>
+        <lastmod>2026-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
 </urlset>
-

@@ -1,30 +1,59 @@
 # MAXTRAVEL Robots.txt
 # https://maxtravel.company/
+# Last updated: 2026-01-28
 
 User-agent: *
 Allow: /
+Allow: /blog.html
+Allow: /index.html
+Allow: /images/
 
-# Sitemap
+# Sitemap location
 Sitemap: https://maxtravel.company/sitemap.xml
 
 # Crawl-delay for polite crawling
 Crawl-delay: 1
 
-# Block common bot paths (if any)
-Disallow: /private/
-Disallow: /admin/
+# Block API and config files
+Disallow: /api/
 Disallow: /*.json$
+Disallow: /vercel.json
+Disallow: /package.json
 
-# Allow all major search engines
+# Allow all major search engines with full access
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /images/
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Yandex
 Allow: /
+Crawl-delay: 1
 
 User-agent: DuckDuckBot
 Allow: /
 
+User-agent: Slurp
+Allow: /
+
+User-agent: facebot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
