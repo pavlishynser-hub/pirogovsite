@@ -1004,3 +1004,299 @@ window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
+
+// ===== AI Chat Widget =====
+function initAIChat() {
+    const chatWidget = document.getElementById('aiChatWidget');
+    const chatBtn = document.getElementById('aiChatBtn');
+    const chatWindow = document.getElementById('aiChatWindow');
+    const chatClose = document.getElementById('aiChatClose');
+    const chatInput = document.getElementById('aiChatInput');
+    const chatMessages = document.getElementById('aiChatMessages');
+    const sendBtn = document.getElementById('aiSendBtn');
+    const quickBtns = document.querySelectorAll('.ai-quick-btn');
+    const aiBubble = document.getElementById('aiBubble');
+    const aiBubbleText = document.getElementById('aiBubbleText');
+    const aiBubbleClose = document.getElementById('aiBubbleClose');
+    
+    if (!chatWidget || !chatBtn || !chatWindow) return;
+    
+    let isOpen = false;
+    let bubbleShown = false;
+    let bubbleDismissed = false;
+    let lastTrigger = null;
+    
+    // Get current language
+    const lang = () => localStorage.getItem('maxtravel-lang') || 'en';
+    
+    // Proactive messages
+    const proactiveMessages = {
+        welcome: {
+            en: "Hello! 👋 I'm Max, your travel assistant. Need help with a transfer?",
+            cz: "Ahoj! 👋 Jsem Max, váš cestovní asistent. Potřebujete pomoct s transferem?"
+        },
+        fleet: {
+            en: "Looking at our vehicles? 🚐 I can help you choose the perfect one!",
+            cz: "Prohlížíte si naše vozidla? 🚐 Pomohu vám vybrat to pravé!"
+        },
+        routes: {
+            en: "Planning a trip? 🗺️ Tell me your destination and I'll help!",
+            cz: "Plánujete cestu? 🗺️ Řekněte mi kam a já pomohu!"
+        },
+        contact: {
+            en: "Ready to book? 📞 I can guide you through the process!",
+            cz: "Připraveni k rezervaci? 📞 Provedu vás procesem!"
+        },
+        scroll: {
+            en: "Like what you see? 😊 Any questions? I'm here to help!",
+            cz: "Líbí se vám? 😊 Máte dotazy? Jsem tu pro vás!"
+        },
+        idle: {
+            en: "Still browsing? 🤔 Let me help you find what you need!",
+            cz: "Stále hledáte? 🤔 Pomohu vám najít, co potřebujete!"
+        }
+    };
+    
+    // Show bubble
+    function showBubble(messageKey) {
+        if (bubbleDismissed || isOpen || !aiBubble) return;
+        if (lastTrigger === messageKey) return;
+        
+        lastTrigger = messageKey;
+        const message = proactiveMessages[messageKey];
+        if (!message) return;
+        
+        aiBubbleText.textContent = message[lang()] || message['en'];
+        aiBubble.classList.add('active');
+        
+        setTimeout(() => {
+            aiBubble.classList.add('bounce');
+            setTimeout(() => aiBubble.classList.remove('bounce'), 500);
+        }, 300);
+        
+        bubbleShown = true;
+        
+        setTimeout(() => {
+            if (!isOpen) hideBubble();
+        }, 8000);
+    }
+    
+    function hideBubble() {
+        if (aiBubble) aiBubble.classList.remove('active');
+    }
+    
+    // Bubble click opens chat
+    if (aiBubble) {
+        aiBubble.addEventListener('click', (e) => {
+            if (e.target === aiBubbleClose) return;
+            isOpen = true;
+            toggleChat();
+            hideBubble();
+        });
+    }
+    
+    // Bubble close
+    if (aiBubbleClose) {
+        aiBubbleClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            hideBubble();
+            bubbleDismissed = true;
+        });
+    }
+    
+    // Welcome after 4 seconds
+    setTimeout(() => {
+        if (!sessionStorage.getItem('max-welcomed')) {
+            showBubble('welcome');
+            sessionStorage.setItem('max-welcomed', 'true');
+        }
+    }, 4000);
+    
+    // Section observers
+    const sectionTriggers = {
+        'fleet': 'fleet',
+        'routes': 'routes',
+        'contact': 'contact'
+    };
+    
+    Object.keys(sectionTriggers).forEach(sectionId => {
+        const section = document.getElementById(sectionId) || document.querySelector(`.${sectionId}`);
+        if (!section) return;
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !bubbleDismissed && !isOpen) {
+                    setTimeout(() => showBubble(sectionTriggers[sectionId]), 2000);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(section);
+    });
+    
+    // 50% scroll trigger
+    let scrollTriggered = false;
+    window.addEventListener('scroll', () => {
+        if (scrollTriggered || bubbleDismissed || isOpen) return;
+        
+        const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+        if (scrollPercent > 50) {
+            scrollTriggered = true;
+            setTimeout(() => showBubble('scroll'), 1500);
+        }
+    });
+    
+    // Idle trigger
+    let idleTimer;
+    function resetIdleTimer() {
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(() => {
+            if (!bubbleDismissed && !isOpen && !bubbleShown) {
+                showBubble('idle');
+            }
+        }, 30000);
+    }
+    
+    ['mousemove', 'scroll', 'click', 'keypress'].forEach(event => {
+        document.addEventListener(event, resetIdleTimer, { passive: true });
+    });
+    resetIdleTimer();
+    
+    // Toggle chat
+    chatBtn.addEventListener('click', () => {
+        isOpen = !isOpen;
+        toggleChat();
+    });
+    
+    chatClose?.addEventListener('click', () => {
+        isOpen = false;
+        toggleChat();
+    });
+    
+    function toggleChat() {
+        chatWindow.classList.toggle('active', isOpen);
+        chatBtn.classList.toggle('hidden', isOpen);
+        
+        if (isOpen && chatInput) {
+            setTimeout(() => chatInput.focus(), 300);
+        }
+    }
+    
+    // Send message
+    async function sendMessage(text) {
+        if (!text.trim()) return;
+        
+        const quickActions = chatMessages.querySelector('.ai-quick-actions');
+        if (quickActions) quickActions.style.display = 'none';
+        
+        addMessage(text, 'user');
+        if (chatInput) chatInput.value = '';
+        
+        showTyping();
+        
+        try {
+            const response = await getAIResponse(text);
+            hideTyping();
+            addMessage(response, 'bot');
+        } catch (error) {
+            hideTyping();
+            addMessage(lang() === 'cz' 
+                ? 'Došlo k chybě. Zkuste to prosím znovu.' 
+                : 'An error occurred. Please try again.', 'bot');
+        }
+    }
+    
+    function addMessage(text, type) {
+        const time = new Date().toLocaleTimeString(lang() === 'cz' ? 'cs-CZ' : 'en-US', { 
+            hour: '2-digit', minute: '2-digit' 
+        });
+        
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `ai-message ai-message-${type}`;
+        messageDiv.innerHTML = `
+            <div class="ai-message-content"><p>${text}</p></div>
+            <span class="ai-message-time">${time}</span>
+        `;
+        
+        chatMessages.appendChild(messageDiv);
+        scrollToBottom();
+    }
+    
+    function showTyping() {
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'ai-message ai-message-bot ai-typing-wrapper';
+        typingDiv.innerHTML = '<div class="ai-typing"><span></span><span></span><span></span></div>';
+        typingDiv.id = 'aiTyping';
+        chatMessages.appendChild(typingDiv);
+        scrollToBottom();
+    }
+    
+    function hideTyping() {
+        const typing = document.getElementById('aiTyping');
+        if (typing) typing.remove();
+    }
+    
+    function scrollToBottom() {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    let conversationHistory = [];
+    
+    async function getAIResponse(userMessage) {
+        try {
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    message: userMessage,
+                    conversationHistory: conversationHistory,
+                    language: lang()
+                })
+            });
+            
+            if (!response.ok) throw new Error('API request failed');
+            
+            const data = await response.json();
+            
+            conversationHistory.push({ role: 'user', content: userMessage });
+            conversationHistory.push({ role: 'assistant', content: data.message });
+            
+            if (conversationHistory.length > 20) {
+                conversationHistory = conversationHistory.slice(-20);
+            }
+            
+            return data.message;
+            
+        } catch (error) {
+            console.error('AI API Error:', error);
+            return lang() === 'cz' 
+                ? 'Omlouváme se, došlo k problému. Kontaktujte nás prosím přímo: +420 776 374 669 📞'
+                : 'Sorry, there was an issue. Please contact us directly: +420 776 374 669 📞';
+        }
+    }
+    
+    // Event listeners
+    sendBtn?.addEventListener('click', () => sendMessage(chatInput.value));
+    
+    chatInput?.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage(chatInput.value);
+        }
+    });
+    
+    quickBtns.forEach(btn => {
+        btn.addEventListener('click', () => sendMessage(btn.dataset.message));
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isOpen) {
+            isOpen = false;
+            toggleChat();
+        }
+    });
+}
+
+// Initialize AI Chat
+initAIChat();

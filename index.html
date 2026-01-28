@@ -1026,6 +1026,79 @@
         window.dispatchEvent(new Event('firebaseReady'));
     </script>
     
+    <!-- AI Chat Widget -->
+    <div class="ai-chat-widget" id="aiChatWidget">
+        <!-- Proactive Bubble -->
+        <div class="ai-bubble" id="aiBubble">
+            <button class="ai-bubble-close" id="aiBubbleClose" aria-label="Close">×</button>
+            <div class="ai-bubble-avatar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>
+                </svg>
+            </div>
+            <div class="ai-bubble-content">
+                <span class="ai-bubble-name">Max AI</span>
+                <p class="ai-bubble-text" id="aiBubbleText">Hello! Need help with booking a transfer?</p>
+            </div>
+        </div>
+
+        <!-- Chat Button -->
+        <button class="ai-chat-btn" id="aiChatBtn" aria-label="Chat with Max AI">
+            <span class="ai-btn-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+                </svg>
+            </span>
+            <span class="ai-btn-pulse"></span>
+            <span class="ai-btn-label" data-en="Max AI" data-cz="Max AI">Max AI</span>
+        </button>
+
+        <!-- Chat Window -->
+        <div class="ai-chat-window" id="aiChatWindow">
+            <div class="ai-chat-header">
+                <div class="ai-chat-avatar">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>
+                    </svg>
+                </div>
+                <div class="ai-chat-title">
+                    <span>Max AI</span>
+                    <small data-en="Online • Your travel assistant" data-cz="Online • Váš cestovní asistent">Online • Your travel assistant</small>
+                </div>
+                <button class="ai-chat-close" id="aiChatClose" aria-label="Close chat">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="ai-chat-messages" id="aiChatMessages">
+                <div class="ai-message ai-message-bot">
+                    <div class="ai-message-content">
+                        <p data-en="Hello! I'm Max, your MAXTRAVEL assistant 🚐 How can I help you today? Airport transfer, city tour, or something else?" data-cz="Ahoj! Jsem Max, váš asistent MAXTRAVEL 🚐 Jak vám mohu dnes pomoci? Letištní transfer, prohlídka města nebo něco jiného?">Hello! I'm Max, your MAXTRAVEL assistant 🚐 How can I help you today? Airport transfer, city tour, or something else?</p>
+                    </div>
+                    <span class="ai-message-time">Just now</span>
+                </div>
+                
+                <div class="ai-quick-actions">
+                    <button class="ai-quick-btn" data-message="I need an airport transfer" data-en="Airport Transfer ✈️" data-cz="Letištní transfer ✈️">Airport Transfer ✈️</button>
+                    <button class="ai-quick-btn" data-message="Tell me about your vehicles" data-en="Our Fleet 🚐" data-cz="Naše vozidla 🚐">Our Fleet 🚐</button>
+                    <button class="ai-quick-btn" data-message="What are your prices?" data-en="Pricing 💰" data-cz="Ceny 💰">Pricing 💰</button>
+                    <button class="ai-quick-btn" data-message="I want to book a city tour" data-en="City Tours 🏙️" data-cz="Výlety 🏙️">City Tours 🏙️</button>
+                </div>
+            </div>
+            
+            <div class="ai-chat-input">
+                <input type="text" id="aiChatInput" placeholder="Type your message..." data-placeholder-en="Type your message..." data-placeholder-cz="Napište zprávu...">
+                <button class="ai-send-btn" id="aiSendBtn" aria-label="Send message">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
