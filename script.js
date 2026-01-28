@@ -244,8 +244,8 @@ function animateCounter(element, target) {
 // ===== Language Switcher =====
 function initLanguageSwitcher() {
     const langButtons = document.querySelectorAll('.lang-btn');
-    const translatableElements = document.querySelectorAll('[data-en][data-cz]');
-    const placeholderElements = document.querySelectorAll('[data-placeholder-en][data-placeholder-cz]');
+    const translatableElements = document.querySelectorAll('[data-en]');
+    const placeholderElements = document.querySelectorAll('[data-placeholder-en]');
     
     // Get saved language or default to English
     let currentLang = localStorage.getItem('maxtravel-lang') || 'en';
@@ -273,7 +273,7 @@ function initLanguageSwitcher() {
         
         // Update text content
         translatableElements.forEach(el => {
-            const text = el.dataset[lang];
+            const text = el.dataset[lang] || el.dataset['en']; // fallback to English
             if (text) {
                 el.textContent = text;
             }
@@ -281,14 +281,16 @@ function initLanguageSwitcher() {
         
         // Update placeholders
         placeholderElements.forEach(el => {
-            const placeholder = el.dataset[`placeholder${lang.charAt(0).toUpperCase() + lang.slice(1)}`];
+            const placeholder = el.dataset[`placeholder${lang.charAt(0).toUpperCase() + lang.slice(1)}`] 
+                || el.dataset['placeholderEn'];
             if (placeholder) {
                 el.placeholder = placeholder;
             }
         });
         
         // Update HTML lang attribute
-        document.documentElement.lang = lang === 'cz' ? 'cs' : 'en';
+        const langMap = { 'cz': 'cs', 'ua': 'uk', 'en': 'en' };
+        document.documentElement.lang = langMap[lang] || 'en';
     }
 }
 
@@ -1033,27 +1035,33 @@ function initAIChat() {
     const proactiveMessages = {
         welcome: {
             en: "Hello! 👋 I'm Max, your travel assistant. Need help with a transfer?",
-            cz: "Ahoj! 👋 Jsem Max, váš cestovní asistent. Potřebujete pomoct s transferem?"
+            cz: "Ahoj! 👋 Jsem Max, váš cestovní asistent. Potřebujete pomoct s transferem?",
+            ua: "Привіт! 👋 Я Max, ваш асистент. Потрібна допомога з трансфером?"
         },
         fleet: {
             en: "Looking at our vehicles? 🚐 I can help you choose the perfect one!",
-            cz: "Prohlížíte si naše vozidla? 🚐 Pomohu vám vybrat to pravé!"
+            cz: "Prohlížíte si naše vozidla? 🚐 Pomohu vám vybrat to pravé!",
+            ua: "Переглядаєте наші авто? 🚐 Допоможу обрати ідеальне!"
         },
         routes: {
             en: "Planning a trip? 🗺️ Tell me your destination and I'll help!",
-            cz: "Plánujete cestu? 🗺️ Řekněte mi kam a já pomohu!"
+            cz: "Plánujete cestu? 🗺️ Řekněte mi kam a já pomohu!",
+            ua: "Плануєте поїздку? 🗺️ Скажіть куди і я допоможу!"
         },
         contact: {
             en: "Ready to book? 📞 I can guide you through the process!",
-            cz: "Připraveni k rezervaci? 📞 Provedu vás procesem!"
+            cz: "Připraveni k rezervaci? 📞 Provedu vás procesem!",
+            ua: "Готові бронювати? 📞 Проведу вас через процес!"
         },
         scroll: {
             en: "Like what you see? 😊 Any questions? I'm here to help!",
-            cz: "Líbí se vám? 😊 Máte dotazy? Jsem tu pro vás!"
+            cz: "Líbí se vám? 😊 Máte dotazy? Jsem tu pro vás!",
+            ua: "Подобається? 😊 Є питання? Я тут щоб допомогти!"
         },
         idle: {
             en: "Still browsing? 🤔 Let me help you find what you need!",
-            cz: "Stále hledáte? 🤔 Pomohu vám najít, co potřebujete!"
+            cz: "Stále hledáte? 🤔 Pomohu vám najít, co potřebujete!",
+            ua: "Ще шукаєте? 🤔 Допоможу знайти те, що потрібно!"
         }
     };
     
