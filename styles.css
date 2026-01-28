@@ -745,10 +745,12 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
 }
 
-.fleet-image-slider .slider-track img {
+.fleet-image-slider .slider-track img,
+.fleet-image-slider .slider-track video {
     min-width: 100%;
     width: 100%;
     height: 100%;
+    object-fit: cover;
     object-fit: cover;
     flex-shrink: 0;
 }
