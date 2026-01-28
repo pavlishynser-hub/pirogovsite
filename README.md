@@ -44,7 +44,7 @@ piroovsite/
 
 - **Phones**: +420 776 384 669, +420 739 321 218
 - **WhatsApp**: +420 735 103 830
-- **Email**: dmitropirogov5@gmail.com
+- **Email**: 2015maxetavel@seznam.cz
 
 ## 🌍 Service Areas
 

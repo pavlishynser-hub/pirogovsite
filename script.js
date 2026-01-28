@@ -1,5 +1,46 @@
 // ===== MAXTRAVEL - JavaScript =====
 
+// ===== Telegram Bot Configuration =====
+// ВАЖНО: Замените эти значения на свои!
+// Создайте бота через @BotFather в Telegram и получите токен
+// Chat ID можно узнать через @userinfobot или @getidsbot
+const TELEGRAM_CONFIG = {
+    botToken: '8509717078:AAH-rMGAZwc14A77bHXcM1H8IFrgGrn38z8', // Ваш токен бота
+    chatId: '439950117' // Ваш личный chat_id
+};
+
+// ===== Send Message to Telegram =====
+async function sendToTelegram(message) {
+    const url = `https://api.telegram.org/bot${TELEGRAM_CONFIG.botToken}/sendMessage`;
+    
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                chat_id: TELEGRAM_CONFIG.chatId,
+                text: message,
+                parse_mode: 'HTML'
+            })
+        });
+        
+        const result = await response.json();
+        
+        if (!result.ok) {
+            console.error('Telegram API error:', result);
+            return false;
+        }
+        
+        console.log('✅ Message sent to Telegram successfully!');
+        return true;
+    } catch (error) {
+        console.error('Error sending to Telegram:', error);
+        return false;
+    }
+}
+
 // ===== Analytics Event Tracking =====
 function trackEvent(eventName, eventParams = {}) {
     // Google Analytics 4
@@ -351,9 +392,27 @@ function initContactForm() {
         submitBtn.disabled = true;
         submitBtn.textContent = currentLang === 'cz' ? 'Odesílání...' : 'Sending...';
         
-        // Simulate form submission (replace with actual endpoint)
         try {
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            // Format message for Telegram
+            const telegramMessage = `
+🚐 <b>НОВАЯ ЗАЯВКА С САЙТА</b>
+
+👤 <b>Имя:</b> ${data.name || 'Не указано'}
+📱 <b>Телефон:</b> ${data.phone || 'Не указан'}
+🛣 <b>Маршрут:</b> ${data.route || 'Не указан'}
+📅 <b>Дата:</b> ${data.date || 'Не указана'}
+👥 <b>Пассажиры:</b> ${data.passengers || 'Не указано'}
+💬 <b>Сообщение:</b> ${data.message || 'Нет'}
+
+⏰ <i>Время заявки: ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Prague' })}</i>
+            `.trim();
+            
+            // Send to Telegram
+            const telegramSent = await sendToTelegram(telegramMessage);
+            
+            if (!telegramSent) {
+                throw new Error('Failed to send to Telegram');
+            }
             
             // Show success message
             form.innerHTML = `
@@ -370,8 +429,7 @@ function initContactForm() {
             // Track conversion event
             TrackingEvents.formSubmit('contact_form');
             
-            // Log form data (for demo purposes)
-            console.log('Form submitted:', data);
+            console.log('Form submitted and sent to Telegram:', data);
             
         } catch (error) {
             console.error('Form submission error:', error);
@@ -675,6 +733,25 @@ async function saveReview(review) {
         });
         
         console.log('Review saved to Firebase!');
+        
+        // Send review notification to Telegram
+        const stars = '⭐'.repeat(review.rating);
+        const telegramMessage = `
+📝 <b>НОВЫЙ ОТЗЫВ НА САЙТЕ</b>
+
+${stars} (${review.rating}/5)
+
+👤 <b>Автор:</b> ${review.name}
+📍 <b>Город:</b> ${review.city}
+
+💬 <b>Отзыв:</b>
+"${review.text}"
+
+⏰ <i>Время: ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Prague' })}</i>
+        `.trim();
+        
+        await sendToTelegram(telegramMessage);
+        
     } catch (error) {
         console.error('Error saving review:', error);
         // Fallback to localStorage
