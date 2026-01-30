@@ -90,7 +90,7 @@ export default async function handler(req, res) {
 
 Покриття: Чехія, Німеччина, Австрія, Польща, Угорщина, Словаччина, Франція, Швейцарія, Хорватія, Литва
 
-Контакт: +420 776 374 669 (WhatsApp), 2015maxetavel@seznam.cz
+Контакт: +420 735 103 830 (WhatsApp), 2015maxetavel@seznam.cz
 
 Відповідай стисло (2-4 речення), використовуй емодзі помірно (1-2 на повідомлення). Став уточнюючі питання. Завжди закінчуй питанням або пропозицією допомоги.`;
     } else if (language === 'cz') {
@@ -124,7 +124,7 @@ Služby:
 
 Pokrytí: Česko, Německo, Rakousko, Polsko, Maďarsko, Slovensko, Francie, Švýcarsko, Chorvatsko, Litva
 
-Kontakt: +420 776 374 669 (WhatsApp), 2015maxetavel@seznam.cz
+Kontakt: +420 735 103 830 (WhatsApp), 2015maxetavel@seznam.cz
 
 Odpovídej stručně (2-4 věty), používej emoji střídmě (1-2 na zprávu). Ptej se na upřesňující otázky. Vždy konči otázkou nebo nabídkou pomoci.`;
     } else {
@@ -158,7 +158,7 @@ Services:
 
 Coverage: Czech Republic, Germany, Austria, Poland, Hungary, Slovakia, France, Switzerland, Croatia, Lithuania
 
-Contact: +420 776 374 669 (WhatsApp), 2015maxetavel@seznam.cz
+Contact: +420 735 103 830 (WhatsApp), 2015maxetavel@seznam.cz
 
 Keep responses concise (2-4 sentences), use emojis sparingly (1-2 per message). Ask clarifying questions. Always end with a question or offer to help.`;
     }

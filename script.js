@@ -1279,8 +1279,8 @@ function initAIChat() {
         } catch (error) {
             console.error('AI API Error:', error);
             return lang() === 'cz' 
-                ? 'Omlouváme se, došlo k problému. Kontaktujte nás prosím přímo: +420 776 374 669 📞'
-                : 'Sorry, there was an issue. Please contact us directly: +420 776 374 669 📞';
+                ? 'Omlouváme se, došlo k problému. Kontaktujte nás prosím přímo: +420 735 103 830 📞'
+                : 'Sorry, there was an issue. Please contact us directly: +420 735 103 830 📞';
         }
     }
     
