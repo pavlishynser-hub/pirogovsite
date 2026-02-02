@@ -1130,7 +1130,6 @@ function initAIChat() {
     // Welcome Banner Elements
     const welcomeBanner = document.getElementById('aiWelcomeBanner');
     const welcomeClose = document.getElementById('welcomeClose');
-    const welcomeCta = document.getElementById('welcomeCta');
     
     if (!chatWidget || !chatBtn || !chatWindow) return;
     
@@ -1171,15 +1170,14 @@ function initAIChat() {
             });
         }
         
-        // CTA button - open chat
-        if (welcomeCta) {
-            welcomeCta.addEventListener('click', () => {
-                welcomeBanner.classList.add('hidden');
-                sessionStorage.setItem('maxtravel-welcome-shown', 'true');
-                isOpen = true;
-                toggleChat();
-            });
-        }
+        // Click on banner - open chat
+        welcomeBanner.addEventListener('click', (e) => {
+            if (e.target.classList.contains('welcome-close')) return;
+            welcomeBanner.classList.add('hidden');
+            sessionStorage.setItem('maxtravel-welcome-shown', 'true');
+            isOpen = true;
+            toggleChat();
+        });
     } else if (welcomeBanner) {
         welcomeBanner.classList.add('hidden');
     }
@@ -1189,8 +1187,14 @@ function initAIChat() {
         welcomeBanner.classList.add('collapsing');
         sessionStorage.setItem('maxtravel-welcome-shown', 'true');
         
-        // Add glow effect to chat button during collapse
-        chatBtn.classList.add('pulse-highlight');
+        // Add splash effect when droplet lands
+        setTimeout(() => {
+            chatBtn.classList.add('splash-ready');
+            setTimeout(() => {
+                chatBtn.classList.remove('splash-ready');
+                chatBtn.classList.add('pulse-highlight');
+            }, 600);
+        }, 500);
         
         setTimeout(() => {
             welcomeBanner.classList.add('hidden');
@@ -1199,7 +1203,7 @@ function initAIChat() {
             // Remove highlight after a moment
             setTimeout(() => {
                 chatBtn.classList.remove('pulse-highlight');
-            }, 2000);
+            }, 1500);
         }, 800);
     }
     
