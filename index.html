@@ -1031,8 +1031,58 @@
     
     <!-- AI Chat Widget -->
     <div class="ai-chat-widget" id="aiChatWidget">
-        <!-- Proactive Bubble -->
-        <div class="ai-bubble" id="aiBubble">
+        <!-- Premium Welcome Banner -->
+        <div class="ai-welcome-banner" id="aiWelcomeBanner">
+            <div class="welcome-glow"></div>
+            <div class="welcome-wave">
+                <div class="wave-line"></div>
+                <div class="wave-line"></div>
+                <div class="wave-line"></div>
+            </div>
+            <div class="welcome-content">
+                <div class="welcome-header">
+                    <div class="welcome-avatar">
+                        <div class="avatar-ring"></div>
+                        <div class="avatar-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/>
+                                <circle cx="9" cy="13" r="1.25" fill="currentColor"/>
+                                <circle cx="15" cy="13" r="1.25" fill="currentColor"/>
+                                <path d="M9 17h6" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <span class="avatar-status"></span>
+                    </div>
+                    <div class="welcome-title">
+                        <span class="title-label" data-en="Smart AI Assistant" data-cz="Chytrý AI asistent" data-ua="Розумний AI-помічник">Smart AI Assistant</span>
+                        <span class="title-name">Max Travel</span>
+                    </div>
+                    <button class="welcome-close" id="welcomeClose" aria-label="Close">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="welcome-body">
+                    <p class="welcome-text" data-en="I'm trained on all routes, rates, and rules of our transfers to instantly help you with your trip." data-cz="Jsem vyškolen na všechny trasy, tarify a pravidla našich transferů, abych vám okamžitě pomohl s cestou." data-ua="Я навчений усім маршрутам, тарифам і правилам наших перевезень, щоб миттєво допомогти вам із поїздкою.">I'm trained on all routes, rates, and rules of our transfers to instantly help you with your trip.</p>
+                    <p class="welcome-question" data-en="Where are you planning to travel?" data-cz="Kam plánujete cestu?" data-ua="Куди плануєте подорож?">Where are you planning to travel?</p>
+                </div>
+                <div class="welcome-footer">
+                    <button class="welcome-cta" id="welcomeCta">
+                        <span data-en="Start Chat" data-cz="Zahájit chat" data-ua="Розпочати чат">Start Chat</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="welcome-particles">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <!-- Proactive Bubble (hidden by default now) -->
+        <div class="ai-bubble" id="aiBubble" style="display: none;">
             <button class="ai-bubble-close" id="aiBubbleClose" aria-label="Close">×</button>
             <div class="ai-bubble-avatar">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">

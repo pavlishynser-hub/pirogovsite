@@ -1127,12 +1127,66 @@ function initAIChat() {
     const aiBubbleText = document.getElementById('aiBubbleText');
     const aiBubbleClose = document.getElementById('aiBubbleClose');
     
+    // Welcome Banner Elements
+    const welcomeBanner = document.getElementById('aiWelcomeBanner');
+    const welcomeClose = document.getElementById('welcomeClose');
+    const welcomeCta = document.getElementById('welcomeCta');
+    
     if (!chatWidget || !chatBtn || !chatWindow) return;
     
     let isOpen = false;
     let bubbleShown = false;
     let bubbleDismissed = false;
     let lastTrigger = null;
+    let welcomeShown = !sessionStorage.getItem('maxtravel-welcome-shown');
+    
+    // Initialize Welcome Banner
+    if (welcomeBanner && welcomeShown) {
+        // Auto-collapse after 6 seconds
+        setTimeout(() => {
+            if (welcomeBanner && !welcomeBanner.classList.contains('hidden')) {
+                collapseWelcomeBanner();
+            }
+        }, 6000);
+        
+        // Close button
+        if (welcomeClose) {
+            welcomeClose.addEventListener('click', () => {
+                collapseWelcomeBanner();
+            });
+        }
+        
+        // CTA button - open chat
+        if (welcomeCta) {
+            welcomeCta.addEventListener('click', () => {
+                welcomeBanner.classList.add('hidden');
+                sessionStorage.setItem('maxtravel-welcome-shown', 'true');
+                isOpen = true;
+                toggleChat();
+            });
+        }
+    } else if (welcomeBanner) {
+        welcomeBanner.classList.add('hidden');
+    }
+    
+    function collapseWelcomeBanner() {
+        if (!welcomeBanner) return;
+        welcomeBanner.classList.add('collapsing');
+        sessionStorage.setItem('maxtravel-welcome-shown', 'true');
+        
+        // Add glow effect to chat button during collapse
+        chatBtn.classList.add('pulse-highlight');
+        
+        setTimeout(() => {
+            welcomeBanner.classList.add('hidden');
+            welcomeBanner.classList.remove('collapsing');
+            
+            // Remove highlight after a moment
+            setTimeout(() => {
+                chatBtn.classList.remove('pulse-highlight');
+            }, 2000);
+        }, 800);
+    }
     
     // Get current language
     const lang = () => localStorage.getItem('maxtravel-lang') || 'en';
