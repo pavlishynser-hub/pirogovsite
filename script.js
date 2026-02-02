@@ -1142,12 +1142,20 @@ function initAIChat() {
     
     // Initialize Welcome Banner
     if (welcomeBanner && welcomeShown) {
-        // Auto-collapse after 6 seconds
+        // Hide banner initially, show after 7 seconds
+        welcomeBanner.style.display = 'none';
+        
         setTimeout(() => {
-            if (welcomeBanner && !welcomeBanner.classList.contains('hidden')) {
-                collapseWelcomeBanner();
-            }
-        }, 6000);
+            welcomeBanner.style.display = '';
+            welcomeBanner.classList.add('appearing');
+            
+            // Auto-collapse after 5 seconds of being visible
+            setTimeout(() => {
+                if (welcomeBanner && !welcomeBanner.classList.contains('hidden')) {
+                    collapseWelcomeBanner();
+                }
+            }, 5000);
+        }, 7000);
         
         // Close button
         if (welcomeClose) {
