@@ -1142,7 +1142,8 @@ function initAIChat() {
     // Initialize Welcome Banner
     if (welcomeBanner && welcomeShown) {
         // Hide banner initially, show after 7 seconds
-        welcomeBanner.style.display = 'none';
+        welcomeBanner.style.opacity = '0';
+        welcomeBanner.style.pointerEvents = 'none';
         
         setTimeout(() => {
             // Don't show if chat is already open
@@ -1152,7 +1153,8 @@ function initAIChat() {
                 return;
             }
             
-            welcomeBanner.style.display = '';
+            welcomeBanner.style.opacity = '';
+            welcomeBanner.style.pointerEvents = '';
             welcomeBanner.classList.add('appearing');
             
             // Auto-collapse after 5 seconds of being visible
