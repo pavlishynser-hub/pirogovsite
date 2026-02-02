@@ -5,8 +5,8 @@
 // Создайте бота через @BotFather в Telegram и получите токен
 // Chat ID можно узнать через @userinfobot или @getidsbot
 const TELEGRAM_CONFIG = {
-    botToken: '8509717078:AAH-rMGAZwc14A77bHXcM1H8IFrgGrn38z8', // Ваш токен бота
-    chatId: '439950117' // Ваш личный chat_id
+    botToken: '7681820294:AAE8WM-gtgy3-U0OwTPUrganW2PLZvFGHN8',
+    chatId: '364495687'
 };
 
 // ===== Send Message to Telegram =====
