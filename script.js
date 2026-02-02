@@ -1375,15 +1375,139 @@ function initAIChat() {
         }
     }
     
+    // Car data for displaying in chat
+    const carData = {
+        ford: {
+            id: 'ford',
+            name: 'Ford Transit Custom',
+            year: '2022',
+            image: 'images/bus1.jpg',
+            seats: '8+1',
+            features: {
+                en: ['Climate Control', 'Wi-Fi', 'USB Charging'],
+                cz: ['Klimatizace', 'Wi-Fi', 'USB nabíjení'],
+                ua: ['Кондиціонер', 'Wi-Fi', 'USB зарядка']
+            },
+            ideal: {
+                en: 'Airports, City Tours',
+                cz: 'Letiště, Městské výlety',
+                ua: 'Аеропорти, Екскурсії'
+            }
+        },
+        renault: {
+            id: 'renault',
+            name: 'Renault Trafic',
+            year: '2024/2025',
+            image: 'images/bus2.jpg',
+            seats: '8+1',
+            features: {
+                en: ['Climate Control', 'Premium Interior', 'Comfort Seats'],
+                cz: ['Klimatizace', 'Prémiový interiér', 'Komfortní sedadla'],
+                ua: ['Кондиціонер', 'Преміальний салон', 'Комфортні сидіння']
+            },
+            ideal: {
+                en: 'VIP, Business',
+                cz: 'VIP, Business',
+                ua: 'VIP, Бізнес'
+            }
+        }
+    };
+
+    function createCarCard(car) {
+        const currentLang = lang();
+        const features = car.features[currentLang] || car.features.en;
+        const ideal = car.ideal[currentLang] || car.ideal.en;
+        
+        const bookText = {
+            en: 'Book Now',
+            cz: 'Rezervovat',
+            ua: 'Забронювати'
+        };
+        
+        const detailsText = {
+            en: 'Details',
+            cz: 'Detaily',
+            ua: 'Деталі'
+        };
+        
+        return `
+            <div class="ai-car-card" data-car="${car.id}">
+                <img src="${car.image}" alt="${car.name}" class="ai-car-image" loading="lazy">
+                <div class="ai-car-info">
+                    <div class="ai-car-header">
+                        <h4 class="ai-car-name">${car.name}</h4>
+                        <span class="ai-car-year">${car.year}</span>
+                    </div>
+                    <div class="ai-car-specs">
+                        <span class="ai-car-spec">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                            ${car.seats}
+                        </span>
+                        <span class="ai-car-spec">✓ ${ideal}</span>
+                    </div>
+                    <div class="ai-car-features">
+                        ${features.map(f => `<span class="ai-car-feature">${f}</span>`).join('')}
+                    </div>
+                    <div class="ai-car-cta">
+                        <button class="ai-car-btn ai-car-btn-primary" onclick="document.getElementById('aiChatInput').value='${currentLang === 'ua' ? 'Хочу забронювати ' : currentLang === 'cz' ? 'Chci rezervovat ' : 'I want to book '}${car.name}'; document.getElementById('aiSendBtn').click();">
+                            ${bookText[currentLang] || bookText.en}
+                        </button>
+                        <button class="ai-car-btn ai-car-btn-secondary" onclick="document.querySelector('[href=\\'#fleet\\']').click(); document.getElementById('aiChatWindow').classList.remove('active');">
+                            ${detailsText[currentLang] || detailsText.en}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    function parseCarTags(text) {
+        const carTagRegex = /\[SHOW_CAR:(ford|renault|all)\]/gi;
+        const matches = text.match(carTagRegex);
+        const cleanText = text.replace(carTagRegex, '').trim();
+        
+        let carsToShow = [];
+        if (matches) {
+            matches.forEach(match => {
+                const carId = match.match(/:(ford|renault|all)/i)[1].toLowerCase();
+                if (carId === 'all') {
+                    carsToShow = Object.values(carData);
+                } else if (carData[carId] && !carsToShow.find(c => c.id === carId)) {
+                    carsToShow.push(carData[carId]);
+                }
+            });
+        }
+        
+        return { cleanText, carsToShow };
+    }
+
     function addMessage(text, type) {
         const time = new Date().toLocaleTimeString(lang() === 'cz' ? 'cs-CZ' : 'en-US', { 
             hour: '2-digit', minute: '2-digit' 
         });
         
+        let displayText = text;
+        let carCards = '';
+        
+        // Parse car tags only for bot messages
+        if (type === 'bot') {
+            const parsed = parseCarTags(text);
+            displayText = parsed.cleanText;
+            
+            if (parsed.carsToShow.length > 0) {
+                carCards = `<div class="ai-car-cards">${parsed.carsToShow.map(car => createCarCard(car)).join('')}</div>`;
+            }
+        }
+        
         const messageDiv = document.createElement('div');
         messageDiv.className = `ai-message ai-message-${type}`;
         messageDiv.innerHTML = `
-            <div class="ai-message-content"><p>${text}</p></div>
+            <div class="ai-message-content"><p>${displayText}</p>${carCards}</div>
             <span class="ai-message-time">${time}</span>
         `;
         

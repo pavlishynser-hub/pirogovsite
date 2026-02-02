@@ -3087,3 +3087,151 @@ h1, h2, h3, h4, h5, h6 {
         transform: scale(1);
     }
 }
+
+/* ===== AI Chat Car Cards ===== */
+.ai-car-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+    animation: cardsSlideIn 0.5s ease;
+}
+
+@keyframes cardsSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ai-car-card {
+    background: linear-gradient(145deg, rgba(30, 30, 40, 0.95) 0%, rgba(20, 20, 30, 0.95) 100%);
+    border: 1px solid rgba(78, 205, 196, 0.2);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.ai-car-card:hover {
+    border-color: rgba(78, 205, 196, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.ai-car-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(78, 205, 196, 0.2);
+}
+
+.ai-car-info {
+    padding: 12px;
+}
+
+.ai-car-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.ai-car-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.ai-car-year {
+    font-size: 11px;
+    color: var(--accent-primary);
+    background: rgba(78, 205, 196, 0.15);
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.ai-car-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.ai-car-spec {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3px 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ai-car-spec svg {
+    width: 10px;
+    height: 10px;
+    opacity: 0.7;
+}
+
+.ai-car-features {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.ai-car-feature {
+    font-size: 9px;
+    color: var(--accent-secondary);
+    background: rgba(255, 214, 0, 0.1);
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.ai-car-cta {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ai-car-btn {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.ai-car-btn-primary {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border: none;
+    color: #000;
+}
+
+.ai-car-btn-primary:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+}
+
+.ai-car-btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.ai-car-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.3);
+}
