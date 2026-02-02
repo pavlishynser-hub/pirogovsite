@@ -6,7 +6,7 @@
 // Chat ID можно узнать через @userinfobot или @getidsbot
 const TELEGRAM_CONFIG = {
     botToken: '7681820294:AAE8WM-gtgy3-U0OwTPUrganW2PLZvFGHN8',
-    chatId: '364495687'
+    chatId: '-5125497780'
 };
 
 // ===== Send Message to Telegram =====
