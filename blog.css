@@ -148,6 +148,18 @@
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
+    display: none;
+}
+
+.blog-full-article:target,
+.blog-full-article.active {
+    display: block;
+    animation: fadeInArticle 0.4s ease;
+}
+
+@keyframes fadeInArticle {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .blog-full-article:last-child {
@@ -328,4 +340,27 @@
         gap: 30px;
         text-align: center;
     }
+}
+
+/* Back to Articles Button */
+.back-to-articles {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+    padding: 12px 24px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: var(--accent-primary, #4ecdc4);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-to-articles:hover {
+    background: rgba(78, 205, 196, 0.1);
+    border-color: var(--accent-primary, #4ecdc4);
 }

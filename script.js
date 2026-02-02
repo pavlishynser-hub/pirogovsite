@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadUserReviews();
     initFleetSliders();
     initLightbox();
+    initBlogArticles();
     initEventTracking();
 });
 
@@ -241,6 +242,74 @@ function animateCounter(element, target) {
     requestAnimationFrame(update);
 }
 
+// ===== Blog Articles =====
+function initBlogArticles() {
+    const readMoreLinks = document.querySelectorAll('.blog-card-link');
+    const fullArticles = document.querySelectorAll('.blog-full-article');
+    const articlesSection = document.querySelector('.blog-articles-section');
+    
+    if (!readMoreLinks.length) return; // Not on blog page
+    
+    readMoreLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').replace('#', '');
+            const targetArticle = document.getElementById(targetId);
+            
+            if (targetArticle) {
+                // Hide all articles first
+                fullArticles.forEach(article => article.classList.remove('active'));
+                
+                // Show target article
+                targetArticle.classList.add('active');
+                
+                // Scroll to article with offset for header
+                setTimeout(() => {
+                    const headerOffset = 100;
+                    const elementPosition = targetArticle.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }, 100);
+            }
+        });
+    });
+    
+    // Handle direct URL with hash
+    if (window.location.hash) {
+        const targetId = window.location.hash.replace('#', '');
+        const targetArticle = document.getElementById(targetId);
+        if (targetArticle && targetArticle.classList.contains('blog-full-article')) {
+            targetArticle.classList.add('active');
+            setTimeout(() => {
+                targetArticle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
+        }
+    }
+    
+    // Add back to articles button
+    fullArticles.forEach(article => {
+        const backBtn = document.createElement('button');
+        backBtn.className = 'back-to-articles';
+        backBtn.innerHTML = '← Back to Articles';
+        backBtn.setAttribute('data-en', '← Back to Articles');
+        backBtn.setAttribute('data-cz', '← Zpět na články');
+        backBtn.setAttribute('data-ua', '← Назад до статей');
+        backBtn.onclick = () => {
+            article.classList.remove('active');
+            const blogGrid = document.querySelector('.blog-grid');
+            if (blogGrid) {
+                blogGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            history.pushState(null, '', window.location.pathname);
+        };
+        article.insertBefore(backBtn, article.firstChild);
+    });
+}
+
 // ===== Language Switcher =====
 function initLanguageSwitcher() {
     const langButtons = document.querySelectorAll('.lang-btn');
@@ -271,8 +340,12 @@ function initLanguageSwitcher() {
             btn.classList.toggle('active', btn.dataset.lang === lang);
         });
         
+        // Re-select all translatable elements (including dynamically added)
+        const allTranslatable = document.querySelectorAll('[data-en]');
+        const allPlaceholders = document.querySelectorAll('[data-placeholder-en]');
+        
         // Update text content
-        translatableElements.forEach(el => {
+        allTranslatable.forEach(el => {
             const text = el.dataset[lang] || el.dataset['en']; // fallback to English
             if (text) {
                 el.textContent = text;
@@ -280,7 +353,7 @@ function initLanguageSwitcher() {
         });
         
         // Update placeholders
-        placeholderElements.forEach(el => {
+        allPlaceholders.forEach(el => {
             const placeholder = el.dataset[`placeholder${lang.charAt(0).toUpperCase() + lang.slice(1)}`] 
                 || el.dataset['placeholderEn'];
             if (placeholder) {
@@ -291,6 +364,39 @@ function initLanguageSwitcher() {
         // Update HTML lang attribute
         const langMap = { 'cz': 'cs', 'ua': 'uk', 'en': 'en' };
         document.documentElement.lang = langMap[lang] || 'en';
+        
+        // Update AI Chat welcome message if exists
+        updateAIChatLanguage(lang);
+    }
+    
+    // Make setLanguage globally accessible
+    window.setCurrentLanguage = setLanguage;
+}
+
+// Update AI Chat language
+function updateAIChatLanguage(lang) {
+    const aiBubbleText = document.getElementById('aiBubbleText');
+    const aiWelcome = document.querySelector('.ai-message-text');
+    
+    const messages = {
+        bubble: {
+            en: "Need help with booking?",
+            cz: "Potřebujete pomoct s rezervací?",
+            ua: "Потрібна допомога з бронюванням?"
+        },
+        welcome: {
+            en: "Hello! I'm Max, your MAXTRAVEL assistant 🚐 How can I help you today? Airport transfer, city tour, or something else?",
+            cz: "Ahoj! Jsem Max, váš asistent MAXTRAVEL 🚐 Jak vám mohu dnes pomoci? Letištní transfer, prohlídka města nebo něco jiného?",
+            ua: "Привіт! Я Макс, ваш асистент MAXTRAVEL 🚐 Чим можу допомогти сьогодні? Трансфер в аеропорт, тур містом чи щось інше?"
+        }
+    };
+    
+    if (aiBubbleText && messages.bubble[lang]) {
+        aiBubbleText.textContent = messages.bubble[lang];
+    }
+    
+    if (aiWelcome && messages.welcome[lang]) {
+        aiWelcome.textContent = messages.welcome[lang];
     }
 }
 
