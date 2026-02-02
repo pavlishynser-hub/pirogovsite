@@ -1146,6 +1146,13 @@ function initAIChat() {
         welcomeBanner.style.display = 'none';
         
         setTimeout(() => {
+            // Don't show if chat is already open
+            if (isOpen) {
+                welcomeBanner.classList.add('hidden');
+                sessionStorage.setItem('maxtravel-welcome-shown', 'true');
+                return;
+            }
+            
             welcomeBanner.style.display = '';
             welcomeBanner.classList.add('appearing');
             
