@@ -1401,7 +1401,12 @@ function initAIChat() {
     });
     
     quickBtns.forEach(btn => {
-        btn.addEventListener('click', () => sendMessage(btn.dataset.message));
+        btn.addEventListener('click', () => {
+            const currentLang = lang();
+            const messageKey = `message${currentLang.charAt(0).toUpperCase() + currentLang.slice(1)}`;
+            const message = btn.dataset[messageKey] || btn.dataset.messageEn;
+            sendMessage(message);
+        });
     });
     
     document.addEventListener('keydown', (e) => {
