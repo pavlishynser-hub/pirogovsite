@@ -3124,3 +3124,213 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 12px;
     }
 }
+
+/* ===== Floating Video Button ===== */
+.video-float-btn {
+    position: fixed;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px 12px 14px;
+    background: linear-gradient(135deg, rgba(25, 25, 35, 0.95) 0%, rgba(15, 15, 25, 0.98) 100%);
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(255, 215, 0, 0.15);
+}
+
+.video-float-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(255, 215, 0, 0.25);
+}
+
+.video-float-pulse {
+    position: absolute;
+    inset: -3px;
+    border-radius: 50px;
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    animation: videoPulse 2s ease-in-out infinite;
+}
+
+@keyframes videoPulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0; transform: scale(1.1); }
+}
+
+.video-float-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    border-radius: 50%;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+.video-float-btn:hover .video-float-icon {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.video-float-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+}
+
+/* ===== Video Modal ===== */
+.video-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.video-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.video-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.video-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    background: linear-gradient(145deg, rgba(25, 25, 35, 0.98) 0%, rgba(15, 15, 25, 0.98) 100%);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(0.9) translateY(30px);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.1);
+}
+
+.video-modal.active .video-modal-content {
+    transform: scale(1) translateY(0);
+}
+
+.video-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.video-modal-close:hover {
+    background: var(--accent-primary);
+    color: #000;
+    border-color: transparent;
+    transform: rotate(90deg);
+}
+
+.video-modal-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    background: #000;
+}
+
+.video-modal-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-modal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 20px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.video-modal-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent-primary);
+}
+
+.video-modal-subtitle {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Mobile Video */
+@media (max-width: 768px) {
+    .video-float-btn {
+        left: 15px;
+        top: auto;
+        bottom: 160px;
+        transform: none;
+        padding: 10px 14px 10px 12px;
+    }
+    
+    .video-float-btn:hover {
+        transform: scale(1.05);
+    }
+    
+    .video-float-icon {
+        width: 34px;
+        height: 34px;
+    }
+    
+    .video-float-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .video-float-label {
+        font-size: 12px;
+    }
+    
+    .video-modal-content {
+        width: 95%;
+        border-radius: 16px;
+    }
+    
+    .video-modal-close {
+        top: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
+    }
+}

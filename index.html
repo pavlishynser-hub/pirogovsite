@@ -343,12 +343,23 @@
     <section class="about" id="about">
         <div class="container">
             <div class="about-grid">
-                <div class="about-image">
-                    <div class="image-frame">
-                        <img src="images/team.jpg" alt="MAXTRAVEL Team" loading="lazy">
+                <div class="about-video-wrapper">
+                    <div class="video-preview" id="videoPreview">
+                        <img src="https://img.youtube.com/vi/FWaTxFYvH4Y/maxresdefault.jpg" alt="MAXTRAVEL Video" class="video-thumbnail">
+                        <div class="video-overlay"></div>
+                        <button class="video-play-btn" id="videoPlayBtn" aria-label="Play video">
+                            <div class="play-icon-ring"></div>
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </button>
+                        <div class="video-caption">
+                            <span class="video-duration">2:30</span>
+                            <span class="video-label" data-en="Watch Our Story" data-cz="Podívejte se na náš příběh" data-ua="Дивіться нашу історію">Watch Our Story</span>
+                        </div>
                     </div>
                     <div class="experience-badge">
-                        <span class="badge-number">10</span>
+                        <span class="badge-number">10+</span>
                         <span class="badge-text" data-en="Years of Excellence" data-cz="Let excelence" data-ua="Років досконалості">Years of Excellence</span>
                     </div>
                 </div>
@@ -1115,6 +1126,69 @@
                         <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
                     </svg>
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-overlay" id="videoModalClose"></div>
+        <div class="video-modal-content">
+            <button class="video-modal-close" id="videoModalCloseBtn" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <div class="video-modal-wrapper">
+                <iframe 
+                    id="videoIframe"
+                    src="" 
+                    title="MAXTRAVEL Video"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-modal-info">
+                <span class="video-modal-title">MAXTRAVEL</span>
+                <span class="video-modal-subtitle" data-en="Premium Transportation Services" data-cz="Prémiové přepravní služby" data-ua="Преміальні транспортні послуги">Premium Transportation Services</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Video Button -->
+    <div class="video-float-btn" id="videoFloatBtn">
+        <div class="video-float-pulse"></div>
+        <div class="video-float-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+            </svg>
+        </div>
+        <span class="video-float-label" data-en="Watch Video" data-cz="Přehrát video" data-ua="Дивитись відео">Watch Video</span>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-overlay" id="videoModalClose"></div>
+        <div class="video-modal-content">
+            <button class="video-modal-close" id="videoModalCloseBtn" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <div class="video-modal-wrapper">
+                <iframe 
+                    id="videoIframe"
+                    src="" 
+                    title="MAXTRAVEL Video"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-modal-info">
+                <span class="video-modal-title">MAXTRAVEL</span>
+                <span class="video-modal-subtitle" data-en="Premium Transportation Services" data-cz="Prémiové přepravní služby" data-ua="Преміальні транспортні послуги">Premium Transportation Services</span>
             </div>
         </div>
     </div>

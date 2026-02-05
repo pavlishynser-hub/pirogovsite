@@ -1618,3 +1618,88 @@ function initAIChat() {
 
 // Initialize AI Chat
 initAIChat();
+
+// ===== Video Modal =====
+function initVideoModal() {
+    const videoBtn = document.getElementById('videoFloatBtn');
+    const videoModal = document.getElementById('videoModal');
+    const videoIframe = document.getElementById('videoIframe');
+    const closeBtn = document.getElementById('videoModalCloseBtn');
+    const overlay = document.getElementById('videoModalClose');
+    
+    const YOUTUBE_VIDEO_ID = 'FWaTxFYvH4Y';
+    const YOUTUBE_EMBED_URL = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0`;
+    
+    if (!videoBtn || !videoModal) return;
+    
+    function openModal() {
+        videoModal.classList.add('active');
+        videoIframe.src = YOUTUBE_EMBED_URL;
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal() {
+        videoModal.classList.remove('active');
+        videoIframe.src = '';
+        document.body.style.overflow = '';
+    }
+    
+    videoBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+    
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
+initVideoModal();
+
+// ===== Video Modal =====
+function initVideoModal() {
+    const videoPreview = document.getElementById('videoPreview');
+    const videoPlayBtn = document.getElementById('videoPlayBtn');
+    const videoModal = document.getElementById('videoModal');
+    const videoIframe = document.getElementById('videoIframe');
+    const closeBtn = document.getElementById('videoModalCloseBtn');
+    const overlay = document.getElementById('videoModalClose');
+    
+    const YOUTUBE_VIDEO_ID = 'FWaTxFYvH4Y';
+    const YOUTUBE_EMBED_URL = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0`;
+    
+    if (!videoModal) return;
+    
+    function openModal() {
+        videoModal.classList.add('active');
+        videoIframe.src = YOUTUBE_EMBED_URL;
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal() {
+        videoModal.classList.remove('active');
+        videoIframe.src = '';
+        document.body.style.overflow = '';
+    }
+    
+    // Click on video preview or play button
+    if (videoPreview) videoPreview.addEventListener('click', openModal);
+    if (videoPlayBtn) videoPlayBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openModal();
+    });
+    
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (overlay) overlay.addEventListener('click', closeModal);
+    
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+}
+
+initVideoModal();
