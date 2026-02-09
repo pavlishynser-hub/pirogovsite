@@ -1415,10 +1415,44 @@ function initAIChat() {
                 ua: 'Аеропорти, Екскурсії'
             }
         },
-        renault: {
-            id: 'renault',
-            name: 'Renault Trafic',
-            year: '2024/2025',
+        renault1: {
+            id: 'renault1',
+            name: 'Renault Trafic #1',
+            year: '2025',
+            image: 'images/bus2.jpg',
+            seats: '8+1',
+            features: {
+                en: ['Climate Control', 'Premium Interior', 'Comfort Seats'],
+                cz: ['Klimatizace', 'Prémiový interiér', 'Komfortní sedadla'],
+                ua: ['Кондиціонер', 'Преміальний салон', 'Комфортні сидіння']
+            },
+            ideal: {
+                en: 'VIP, Business',
+                cz: 'VIP, Business',
+                ua: 'VIP, Бізнес'
+            }
+        },
+        renault2: {
+            id: 'renault2',
+            name: 'Renault Trafic #2',
+            year: '2024',
+            image: 'images/bus3.jpg',
+            seats: '8+1',
+            features: {
+                en: ['Climate Control', 'Premium Interior', 'Comfort Seats'],
+                cz: ['Klimatizace', 'Prémiový interiér', 'Komfortní sedadla'],
+                ua: ['Кондиціонер', 'Преміальний салон', 'Комфортні сидіння']
+            },
+            ideal: {
+                en: 'VIP, Business',
+                cz: 'VIP, Business',
+                ua: 'VIP, Бізнес'
+            }
+        },
+        renault3: {
+            id: 'renault3',
+            name: 'Renault Trafic #3',
+            year: '2025',
             image: 'images/bus2.jpg',
             seats: '8+1',
             features: {
@@ -1498,8 +1532,15 @@ function initAIChat() {
                 const carId = match.match(/:(ford|renault|all)/i)[1].toLowerCase();
                 if (carId === 'all') {
                     carsToShow = Object.values(carData);
-                } else if (carData[carId] && !carsToShow.find(c => c.id === carId)) {
-                    carsToShow.push(carData[carId]);
+                } else if (carId === 'ford') {
+                    if (!carsToShow.find(c => c.id === 'ford')) carsToShow.push(carData.ford);
+                } else if (carId === 'renault') {
+                    // Show all Renault vehicles
+                    ['renault1', 'renault2', 'renault3'].forEach(rId => {
+                        if (carData[rId] && !carsToShow.find(c => c.id === rId)) {
+                            carsToShow.push(carData[rId]);
+                        }
+                    });
                 }
             });
         }

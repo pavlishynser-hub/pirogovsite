@@ -103,12 +103,14 @@ export default async function handler(req, res) {
 
 === КІНЕЦЬ АЛГОРИТМУ ===
 
-Наші автомобілі:
-1. Ford Transit Custom 2022 (8+1 місць) [ID: ford]
+Наш автопарк (4 автомобілі):
+1. Ford Transit Custom 2022 (8+1 місць)
    - Кондиціонер, Wi-Fi, USB зарядка
    - Ідеально для: Аеропорти, Екскурсії містом
 
-2. Renault Trafic 2024/2025 (8+1 місць) [ID: renault]
+2. Renault Trafic #1 2025 (8+1 місць)
+3. Renault Trafic #2 2024 (8+1 місць)
+4. Renault Trafic #3 2025 (8+1 місць)
    - Кондиціонер, Преміальний салон
    - Ідеально для: VIP, Бізнес
 
@@ -116,8 +118,8 @@ export default async function handler(req, res) {
 Коли клієнт питає про авто/автопарк/машини, НЕ описуй авто текстом і НЕ використовуй markdown посилання!
 Просто напиши коротку відповідь і ОБОВ'ЯЗКОВО додай в кінці ТОЧНО такий тег:
 - Для Ford: [SHOW_CAR:ford]
-- Для Renault: [SHOW_CAR:renault]
-- Для всіх авто: [SHOW_CAR:all]
+- Для всіх Renault: [SHOW_CAR:renault]
+- Для всього автопарку (4 авто): [SHOW_CAR:all]
 
 Послуги:
 - Трансфери в аеропорт (Прага, Відень, Мюнхен, Берлін)
@@ -174,12 +176,14 @@ DŮLEŽITÉ: Pokud klient uvede trasu, odhadni vzdálenost a použij odpovídaj�
 
 === KONEC ALGORITMU ===
 
-Naše vozidla:
-1. Ford Transit Custom 2022 (8+1 míst) [ID: ford]
+Náš vozový park (4 vozidla):
+1. Ford Transit Custom 2022 (8+1 míst)
    - Klimatizace, Wi-Fi, USB nabíjení
    - Ideální pro: Letiště, Městské výlety
 
-2. Renault Trafic 2024/2025 (8+1 míst) [ID: renault]
+2. Renault Trafic #1 2025 (8+1 míst)
+3. Renault Trafic #2 2024 (8+1 míst)
+4. Renault Trafic #3 2025 (8+1 míst)
    - Klimatizace, Prémiový interiér
    - Ideální pro: VIP, Business
 
@@ -187,8 +191,8 @@ DŮLEŽITÉ O FOTKÁCH VOZIDEL:
 Když se klient ptá na vozidla/auta/vozový park, NEPOPISUJ auta textem a NEPOUŽÍVEJ markdown odkazy!
 Prostě napiš krátkou odpověď a VŽDY přidej na konec PŘESNĚ takový tag:
 - Pro Ford: [SHOW_CAR:ford]
-- Pro Renault: [SHOW_CAR:renault]
-- Pro všechna auta: [SHOW_CAR:all]
+- Pro všechny Renault: [SHOW_CAR:renault]
+- Pro celý vozový park (4 auta): [SHOW_CAR:all]
 
 Služby:
 - Letištní transfery (Praha, Vídeň, Mnichov, Berlín)
@@ -245,12 +249,14 @@ IMPORTANT: If the client names a route, try to estimate the distance and apply t
 
 === END OF PRICING ALGORITHM ===
 
-Our vehicles:
-1. Ford Transit Custom 2022 (8+1 seats) [ID: ford]
+Our fleet (4 vehicles):
+1. Ford Transit Custom 2022 (8+1 seats)
    - Climate control, Wi-Fi, USB charging
    - Perfect for: Airports, City Tours
 
-2. Renault Trafic 2024/2025 (8+1 seats) [ID: renault]
+2. Renault Trafic #1 2025 (8+1 seats)
+3. Renault Trafic #2 2024 (8+1 seats)
+4. Renault Trafic #3 2025 (8+1 seats)
    - Climate control, Premium Interior
    - Perfect for: VIP, Business
 
@@ -258,8 +264,8 @@ IMPORTANT ABOUT VEHICLE PHOTOS:
 When client asks about vehicles/cars/fleet, DO NOT describe cars with text and DO NOT use markdown image links!
 Just write a short response and ALWAYS add at the end EXACTLY this tag:
 - For Ford: [SHOW_CAR:ford]
-- For Renault: [SHOW_CAR:renault]
-- For all vehicles: [SHOW_CAR:all]
+- For all Renaults: [SHOW_CAR:renault]
+- For entire fleet (4 vehicles): [SHOW_CAR:all]
 
 Services:
 - Airport transfers (Prague, Vienna, Munich, Berlin)
