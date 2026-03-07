@@ -522,27 +522,13 @@ function initContactForm() {
                 throw new Error('Failed to send to Telegram');
             }
             
-            // Show success message
-            form.innerHTML = `
-                <div class="form-success">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                        <polyline points="22 4 12 14.01 9 11.01"/>
-                    </svg>
-                    <h4>${currentLang === 'cz' ? 'Děkujeme!' : 'Thank You!'}</h4>
-                    <p>${currentLang === 'cz' ? 'Ozveme se vám co nejdříve.' : 'We will contact you shortly.'}</p>
-                </div>
-            `;
-            
             // Track conversion event
             TrackingEvents.formSubmit('contact_form');
-
-            // Google Ads conversion
-            if (typeof gtag === 'function') {
-                gtag('event', 'conversion', { send_to: 'AW-17989815204/contact_form_submit' });
-            }
             
             console.log('Form submitted and sent to Telegram:', data);
+
+            // Redirect to thank-you page (triggers Google Ads conversion)
+            window.location.href = '/thank-you.html';
             
         } catch (error) {
             console.error('Form submission error:', error);
