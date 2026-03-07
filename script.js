@@ -536,6 +536,11 @@ function initContactForm() {
             
             // Track conversion event
             TrackingEvents.formSubmit('contact_form');
+
+            // Google Ads conversion
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', { send_to: 'AW-17989815204/contact_form_submit' });
+            }
             
             console.log('Form submitted and sent to Telegram:', data);
             
