@@ -1093,7 +1093,7 @@
         </button>
 
         <!-- Chat Window -->
-        <div class="ai-chat-window" id="aiChatWindow">
+        <div class="ai-chat-window is-gated" id="aiChatWindow">
             <div class="ai-chat-header">
                 <div class="ai-chat-avatar">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -1110,11 +1110,46 @@
                     </svg>
                 </button>
             </div>
+
+            <div class="ai-gate" id="aiGate">
+                <div class="ai-gate-card">
+                    <div class="ai-gate-mark" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="ai-gate-title" data-en="MAX AI" data-cz="MAX AI" data-ua="MAX AI">MAX AI</h3>
+                    <p class="ai-gate-text" data-en="To chat with MAX AI, please leave your name and phone number." data-cz="Pro komunikaci s MAX AI zanechte prosím své jméno a telefonní číslo." data-ua="Для спілкування з MAX AI залиште, будь ласка, ваше ім’я та номер телефону.">To chat with MAX AI, please leave your name and phone number.</p>
+                    <form class="ai-gate-form" id="aiGateForm" novalidate>
+                        <label class="ai-gate-field">
+                            <span data-en="Name" data-cz="Jméno" data-ua="Ім’я">Name</span>
+                            <input id="aiGateName" name="name" type="text" autocomplete="name" maxlength="60" required data-placeholder-en="Your name" data-placeholder-cz="Vaše jméno" data-placeholder-ua="Ваше ім’я" placeholder="Your name">
+                        </label>
+                        <label class="ai-gate-field">
+                            <span data-en="Phone number" data-cz="Telefonní číslo" data-ua="Номер телефону">Phone number</span>
+                            <div class="ai-phone">
+                                <button type="button" class="ai-phone-code" id="aiPhoneCodeBtn" aria-haspopup="listbox" aria-expanded="false">
+                                    <span class="ai-phone-flag" id="aiPhoneFlag">🇨🇿</span>
+                                    <span class="ai-phone-dial" id="aiPhoneDial">+420</span>
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                                </button>
+                                <input id="aiGatePhone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" required data-placeholder-en="Phone number" data-placeholder-cz="Telefonní číslo" data-placeholder-ua="Номер телефону" placeholder="Phone number">
+                                <div class="ai-phone-menu" id="aiPhoneMenu" hidden>
+                                    <input type="search" class="ai-phone-search" id="aiPhoneSearch" data-placeholder-en="Search country" data-placeholder-cz="Hledat zemi" data-placeholder-ua="Пошук країни" placeholder="Search country">
+                                    <div class="ai-phone-list" id="aiPhoneList" role="listbox"></div>
+                                </div>
+                            </div>
+                        </label>
+                        <p class="ai-gate-error" id="aiGateError" hidden></p>
+                        <button type="submit" class="ai-gate-submit" id="aiGateSubmit" data-en="Start chatting" data-cz="Začít konverzaci" data-ua="Почати спілкування">Start chatting</button>
+                    </form>
+                </div>
+            </div>
             
             <div class="ai-chat-messages" id="aiChatMessages">
                 <div class="ai-message ai-message-bot">
                     <div class="ai-message-content">
-                        <p data-en="Hello, Adventure Seeker! I'm Max from MAXTRAVEL 🚐 Would you like an airport transfer, a standard tour (Hallstatt, Munich, Rome, Pisa, Bohemian Switzerland, Ještěd, Budapest), or another route? You can also view our fleet and reviews on this page. May I have your name and phone number?" data-cz="Dobrý den, Hledači dobrodružství! Jsem Max z MAXTRAVEL 🚐 Přejete si transfer na letiště, některý ze standardních zájezdů (Hallstatt, Mnichov, Řím, Pisa, České Švýcarsko, Ještěd, Budapešť), nebo jinou trasu? Na stránce si také můžete prohlédnout vozový park a recenze. Mohu Vás poprosit o jméno a telefon?" data-ua="Вітаю, Шукачу пригод! Я Max з MAXTRAVEL 🚐 Чи хотіли б Ви трансфер з аеропорту, один зі стандартних маршрутів (Гальштат, Мюнхен, Рим, Піза, Чеська Швейцарія, Єштед, Будапешт), чи інший напрямок? Також запрошую переглянути автопарк і відгуки на нашій сторінці. Як до Вас звертатися, і який Ваш номер телефону?">Hello, Adventure Seeker! I'm Max from MAXTRAVEL 🚐 Would you like an airport transfer, a standard tour (Hallstatt, Munich, Rome, Pisa, Bohemian Switzerland, Ještěd, Budapest), or another route? You can also view our fleet and reviews on this page. May I have your name and phone number?</p>
+                        <p id="aiWelcomeText" data-en="Hello, Adventure Seeker! I'm Max from MAXTRAVEL 🚐 Would you like an airport transfer, a standard tour (Hallstatt, Munich, Rome, Pisa, Bohemian Switzerland, Ještěd, Budapest), or another route? You can also view our fleet and reviews on this page. May I have your name and phone number?" data-cz="Dobrý den, Hledači dobrodružství! Jsem Max z MAXTRAVEL 🚐 Přejete si transfer na letiště, některý ze standardních zájezdů (Hallstatt, Mnichov, Řím, Pisa, České Švýcarsko, Ještěd, Budapešť), nebo jinou trasu? Na stránce si také můžete prohlédnout vozový park a recenze. Mohu Vás poprosit o jméno a telefon?" data-ua="Вітаю, Шукачу пригод! Я Max з MAXTRAVEL 🚐 Чи хотіли б Ви трансфер з аеропорту, один зі стандартних маршрутів (Гальштат, Мюнхен, Рим, Піза, Чеська Швейцарія, Єштед, Будапешт), чи інший напрямок? Також запрошую переглянути автопарк і відгуки на нашій сторінці. Як до Вас звертатися, і який Ваш номер телефону?">Hello, Adventure Seeker! I'm Max from MAXTRAVEL 🚐 Would you like an airport transfer, a standard tour (Hallstatt, Munich, Rome, Pisa, Bohemian Switzerland, Ještěd, Budapest), or another route? You can also view our fleet and reviews on this page. May I have your name and phone number?</p>
                     </div>
                     <span class="ai-message-time">Just now</span>
                 </div>

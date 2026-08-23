@@ -395,8 +395,9 @@ function updateAIChatLanguage(lang) {
         aiBubbleText.textContent = messages.bubble[lang];
     }
     
-    if (aiWelcome && messages.welcome[lang]) {
-        aiWelcome.textContent = messages.welcome[lang];
+    const aiWelcomeEl = document.getElementById('aiWelcomeText') || document.querySelector('.ai-message-content p');
+    if (aiWelcomeEl && messages.welcome[lang] && !window.__maxAiGuestName) {
+        aiWelcomeEl.textContent = messages.welcome[lang];
     }
 }
 
@@ -1125,6 +1126,8 @@ function initAIChat() {
     if (!chatWidget || !chatBtn || !chatWindow) return;
     
     let isOpen = false;
+    let guestName = '';
+    let chatUnlocked = false;
     let bubbleShown = false;
     let bubbleDismissed = false;
     let lastTrigger = null;
@@ -1358,14 +1361,20 @@ function initAIChat() {
         chatWindow.classList.toggle('active', isOpen);
         chatBtn.classList.toggle('hidden', isOpen);
         
-        if (isOpen && chatInput) {
-            setTimeout(() => chatInput.focus(), 300);
+        if (isOpen) {
+            setTimeout(() => {
+                if (!chatUnlocked) {
+                    document.getElementById('aiGateName')?.focus();
+                } else if (chatInput) {
+                    chatInput.focus();
+                }
+            }, 300);
         }
     }
     
     // Send message
     async function sendMessage(text) {
-        if (!text.trim()) return;
+        if (!text.trim() || !chatUnlocked) return;
         
         const quickActions = chatMessages.querySelector('.ai-quick-actions');
         if (quickActions) quickActions.style.display = 'none';
@@ -1596,7 +1605,8 @@ function initAIChat() {
                 body: JSON.stringify({
                     message: userMessage,
                     conversationHistory: conversationHistory,
-                    language: lang()
+                    language: lang(),
+                    guestName: guestName
                 })
             });
             
@@ -1650,6 +1660,244 @@ function initAIChat() {
             toggleChat();
         }
     });
+
+    const PHONE_COUNTRIES = [
+        { iso: 'CZ', name: 'Czechia', flag: '🇨🇿', dial: '+420' },
+        { iso: 'UA', name: 'Ukraine', flag: '🇺🇦', dial: '+380' },
+        { iso: 'SK', name: 'Slovakia', flag: '🇸🇰', dial: '+421' },
+        { iso: 'PL', name: 'Poland', flag: '🇵🇱', dial: '+48' },
+        { iso: 'DE', name: 'Germany', flag: '🇩🇪', dial: '+49' },
+        { iso: 'AT', name: 'Austria', flag: '🇦🇹', dial: '+43' },
+        { iso: 'HU', name: 'Hungary', flag: '🇭🇺', dial: '+36' },
+        { iso: 'IT', name: 'Italy', flag: '🇮🇹', dial: '+39' },
+        { iso: 'FR', name: 'France', flag: '🇫🇷', dial: '+33' },
+        { iso: 'GB', name: 'United Kingdom', flag: '🇬🇧', dial: '+44' },
+        { iso: 'US', name: 'United States', flag: '🇺🇸', dial: '+1' },
+        { iso: 'ES', name: 'Spain', flag: '🇪🇸', dial: '+34' },
+        { iso: 'NL', name: 'Netherlands', flag: '🇳🇱', dial: '+31' },
+        { iso: 'BE', name: 'Belgium', flag: '🇧🇪', dial: '+32' },
+        { iso: 'CH', name: 'Switzerland', flag: '🇨🇭', dial: '+41' },
+        { iso: 'RO', name: 'Romania', flag: '🇷🇴', dial: '+40' },
+        { iso: 'HR', name: 'Croatia', flag: '🇭🇷', dial: '+385' },
+        { iso: 'SI', name: 'Slovenia', flag: '🇸🇮', dial: '+386' },
+        { iso: 'LT', name: 'Lithuania', flag: '🇱🇹', dial: '+370' },
+        { iso: 'LV', name: 'Latvia', flag: '🇱🇻', dial: '+371' },
+        { iso: 'EE', name: 'Estonia', flag: '🇪🇪', dial: '+372' },
+        { iso: 'MD', name: 'Moldova', flag: '🇲🇩', dial: '+373' },
+        { iso: 'BY', name: 'Belarus', flag: '🇧🇾', dial: '+375' },
+        { iso: 'RS', name: 'Serbia', flag: '🇷🇸', dial: '+381' },
+        { iso: 'BG', name: 'Bulgaria', flag: '🇧🇬', dial: '+359' },
+        { iso: 'GR', name: 'Greece', flag: '🇬🇷', dial: '+30' },
+        { iso: 'PT', name: 'Portugal', flag: '🇵🇹', dial: '+351' },
+        { iso: 'IE', name: 'Ireland', flag: '🇮🇪', dial: '+353' },
+        { iso: 'SE', name: 'Sweden', flag: '🇸🇪', dial: '+46' },
+        { iso: 'NO', name: 'Norway', flag: '🇳🇴', dial: '+47' },
+        { iso: 'DK', name: 'Denmark', flag: '🇩🇰', dial: '+45' },
+        { iso: 'FI', name: 'Finland', flag: '🇫🇮', dial: '+358' },
+        { iso: 'TR', name: 'Turkey', flag: '🇹🇷', dial: '+90' },
+        { iso: 'IL', name: 'Israel', flag: '🇮🇱', dial: '+972' },
+        { iso: 'AE', name: 'UAE', flag: '🇦🇪', dial: '+971' },
+        { iso: 'KZ', name: 'Kazakhstan', flag: '🇰🇿', dial: '+7' },
+        { iso: 'CA', name: 'Canada', flag: '🇨🇦', dial: '+1' }
+    ];
+
+    const gateErrors = {
+        en: {
+            name: 'Please enter your name.',
+            phone: 'Please enter a valid phone number.',
+            save: 'Could not save your contact. Please try again.'
+        },
+        cz: {
+            name: 'Zadejte prosím své jméno.',
+            phone: 'Zadejte prosím platné telefonní číslo.',
+            save: 'Kontakt se nepodařilo uložit. Zkuste to prosím znovu.'
+        },
+        ua: {
+            name: 'Будь ласка, вкажіть ваше ім’я.',
+            phone: 'Будь ласка, вкажіть коректний номер телефону.',
+            save: 'Не вдалося зберегти контакт. Спробуйте ще раз.'
+        }
+    };
+
+    const greetings = {
+        en: (name) => `${name}, thank you! How can I help you?`,
+        cz: (name) => `${name}, děkuji! Jak Vám mohu pomoci?`,
+        ua: (name) => `${name}, дякую! Чим можу Вам допомогти?`
+    };
+
+    function initLeadGate() {
+        const gateForm = document.getElementById('aiGateForm');
+        const nameInput = document.getElementById('aiGateName');
+        const phoneInput = document.getElementById('aiGatePhone');
+        const codeBtn = document.getElementById('aiPhoneCodeBtn');
+        const flagEl = document.getElementById('aiPhoneFlag');
+        const dialEl = document.getElementById('aiPhoneDial');
+        const menu = document.getElementById('aiPhoneMenu');
+        const search = document.getElementById('aiPhoneSearch');
+        const list = document.getElementById('aiPhoneList');
+        const errorEl = document.getElementById('aiGateError');
+        const submitBtn = document.getElementById('aiGateSubmit');
+
+        if (!gateForm || !nameInput || !phoneInput || !submitBtn) return;
+        if (chatInput) chatInput.disabled = true;
+
+        let selected = PHONE_COUNTRIES[0];
+
+        function errText(key) {
+            return (gateErrors[lang()] || gateErrors.en)[key];
+        }
+
+        function showError(message) {
+            if (!errorEl) return;
+            errorEl.hidden = !message;
+            errorEl.textContent = message || '';
+        }
+
+        function setCountry(country) {
+            selected = country;
+            if (flagEl) flagEl.textContent = country.flag;
+            if (dialEl) dialEl.textContent = country.dial;
+            closeMenu();
+        }
+
+        function renderCountries(filter = '') {
+            if (!list) return;
+            const q = filter.trim().toLowerCase();
+            const items = PHONE_COUNTRIES.filter((item) =>
+                !q || item.name.toLowerCase().includes(q) || item.dial.includes(q) || item.iso.toLowerCase().includes(q)
+            );
+            list.innerHTML = items.map((item) => `
+                <button type="button" class="ai-phone-option${item.iso === selected.iso ? ' is-active' : ''}" data-iso="${item.iso}">
+                    <span>${item.flag}</span>
+                    <span>${item.name}</span>
+                    <span>${item.dial}</span>
+                </button>
+            `).join('');
+            list.querySelectorAll('.ai-phone-option').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const country = PHONE_COUNTRIES.find((item) => item.iso === btn.dataset.iso);
+                    if (country) setCountry(country);
+                });
+            });
+        }
+
+        function openMenu() {
+            if (!menu || !codeBtn) return;
+            menu.hidden = false;
+            codeBtn.setAttribute('aria-expanded', 'true');
+            renderCountries(search?.value || '');
+            search?.focus();
+        }
+
+        function closeMenu() {
+            if (!menu || !codeBtn) return;
+            menu.hidden = true;
+            codeBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        function validName(value) {
+            return /^[\p{L}\p{M}][\p{L}\p{M}\s'.-]{1,58}$/u.test(String(value || '').trim());
+        }
+
+        function fullPhone() {
+            return `${selected.dial}${String(phoneInput.value || '').replace(/[^\d]/g, '')}`;
+        }
+
+        function unlockChat(name) {
+            guestName = name;
+            window.__maxAiGuestName = name;
+            chatUnlocked = true;
+            chatWindow.classList.remove('is-gated');
+            if (chatInput) chatInput.disabled = false;
+            const welcome = document.getElementById('aiWelcomeText');
+            const greeting = (greetings[lang()] || greetings.en)(name);
+            if (welcome) {
+                welcome.textContent = greeting;
+                ['en', 'cz', 'ua'].forEach((key) => welcome.removeAttribute(`data-${key}`));
+            }
+            if (!conversationHistory.length) {
+                conversationHistory.push({ role: 'assistant', content: greeting });
+            }
+            setTimeout(() => chatInput?.focus(), 250);
+        }
+
+        codeBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (menu?.hidden) openMenu();
+            else closeMenu();
+        });
+
+        search?.addEventListener('input', () => renderCountries(search.value));
+
+        document.addEventListener('click', (e) => {
+            if (!menu || menu.hidden) return;
+            if (!e.target.closest('.ai-phone')) closeMenu();
+        });
+
+        gateForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            showError('');
+            nameInput.closest('.ai-gate-field')?.classList.remove('has-error');
+            phoneInput.closest('.ai-gate-field')?.classList.remove('has-error');
+
+            const name = nameInput.value.trim();
+            const phone = fullPhone();
+            const digits = phone.replace(/\D/g, '');
+            let invalid = false;
+
+            if (!validName(name)) {
+                nameInput.closest('.ai-gate-field')?.classList.add('has-error');
+                showError(errText('name'));
+                invalid = true;
+            }
+            if (digits.length < 8 || digits.length > 15) {
+                phoneInput.closest('.ai-gate-field')?.classList.add('has-error');
+                showError(errText('phone'));
+                invalid = true;
+            }
+            if (invalid) return;
+
+            const original = submitBtn.textContent;
+            submitBtn.disabled = true;
+
+            try {
+                const response = await fetch('/api/lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name,
+                        phone,
+                        language: lang(),
+                        page: window.location.href
+                    })
+                });
+                const data = await response.json().catch(() => ({}));
+                if (!response.ok || !data.ok) throw new Error(data.error || 'lead failed');
+                sessionStorage.setItem('maxtravel-ai-lead', JSON.stringify({
+                    name: data.name || name,
+                    phone: data.phone || phone
+                }));
+                TrackingEvents.formSubmit('max_ai_lead');
+                unlockChat(data.name || name);
+            } catch (error) {
+                console.error('MAX AI lead error:', error);
+                showError(errText('save'));
+                submitBtn.disabled = false;
+                submitBtn.textContent = original;
+            }
+        });
+
+        renderCountries();
+
+        try {
+            const saved = JSON.parse(sessionStorage.getItem('maxtravel-ai-lead') || 'null');
+            if (saved?.name) unlockChat(saved.name);
+        } catch (error) {
+            // ignore invalid session data
+        }
+    }
+
+    initLeadGate();
 }
 
 // Initialize AI Chat

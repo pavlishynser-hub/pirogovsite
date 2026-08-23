@@ -53,7 +53,7 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    const { message, conversationHistory = [], language = 'en' } = req.body;
+    const { message, conversationHistory = [], language = 'en', guestName = '' } = req.body;
 
     if (!message) {
         return res.status(400).json({ error: 'Message is required' });
@@ -64,6 +64,8 @@ export default async function handler(req, res) {
     if (!OPENAI_API_KEY) {
         return res.status(500).json({ error: 'OpenAI API key not configured' });
     }
+
+    const knownName = String(guestName || '').trim().slice(0, 60);
 
     // System prompt for Max AI concierge - MAXTRAVEL
     let systemPrompt;
@@ -323,6 +325,16 @@ Email: 2015maxetavel@seznam.cz
 
 Reply in English. Emojis sparingly.
 Every reply must include addressing, a route/wishes clarification, an invitation to the fleet and reviews, and (if still missing) a request for a phone number.`;
+    }
+
+    if (knownName) {
+        systemPrompt += `
+
+=== КЛІЄНТ УЖЕ ПРЕДСТАВИВСЯ ===
+Імʼя клієнта: ${knownName}.
+Телефон клієнта вже збережено на сайті. НЕ проси імʼя і НЕ проси номер телефону знову.
+У кожній відповіді звертайся по імені «${knownName}» (у потрібному відмінку / формі).
+Не використовуй «Шукач пригод» / «Hledač dobrodružství» / «Adventure Seeker», поки відоме імʼя.`;
     }
 
     try {
