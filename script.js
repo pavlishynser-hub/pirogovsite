@@ -376,7 +376,7 @@ function initLanguageSwitcher() {
 // Update AI Chat language
 function updateAIChatLanguage(lang) {
     const aiBubbleText = document.getElementById('aiBubbleText');
-    const aiWelcome = document.querySelector('.ai-message-text');
+    const aiWelcome = document.querySelector('.ai-message-content p');
     
     const messages = {
         bubble: {
@@ -385,9 +385,9 @@ function updateAIChatLanguage(lang) {
             ua: "Потрібна допомога з бронюванням?"
         },
         welcome: {
-            en: "Hello! I'm Max, your MAXTRAVEL assistant 🚐 How can I help you today? Airport transfer, city tour, or something else?",
-            cz: "Ahoj! Jsem Max, váš asistent MAXTRAVEL 🚐 Jak vám mohu dnes pomoci? Letištní transfer, prohlídka města nebo něco jiného?",
-            ua: "Привіт! Я Макс, ваш асистент MAXTRAVEL 🚐 Чим можу допомогти сьогодні? Трансфер в аеропорт, тур містом чи щось інше?"
+            en: "Hello, Adventure Seeker! I'm Max from MAXTRAVEL 🚐 Would you like an airport transfer, a standard tour, or another route? May I have your name and phone number?",
+            cz: "Dobrý den, Hledači dobrodružství! Jsem Max z MAXTRAVEL 🚐 Přejete si transfer na letiště, standardní zájezd, nebo jinou trasu? Mohu Vás poprosit o jméno a telefon?",
+            ua: "Вітаю, Шукачу пригод! Я Max з MAXTRAVEL 🚐 Чи хотіли б Ви трансфер з аеропорту, стандартний маршрут, чи інший напрямок? Як до Вас звертатися, і який Ваш номер телефону?"
         }
     };
     
@@ -1206,9 +1206,9 @@ function initAIChat() {
     // Proactive messages
     const proactiveMessages = {
         welcome: {
-            en: "Hello! 👋 I'm Max, your travel assistant. Need help with a transfer?",
-            cz: "Ahoj! 👋 Jsem Max, váš cestovní asistent. Potřebujete pomoct s transferem?",
-            ua: "Привіт! 👋 Я Max, ваш асистент. Потрібна допомога з трансфером?"
+            en: "Hello, Adventure Seeker! 👋 I'm Max. Which route would you like today?",
+            cz: "Dobrý den, Hledači dobrodružství! 👋 Jsem Max. Jakou trasu byste si dnes přáli?",
+            ua: "Вітаю, Шукачу пригод! 👋 Я Max. Яким маршрутом хотіли б Ви скористатися сьогодні?"
         },
         fleet: {
             en: "Looking at our vehicles? 🚐 I can help you choose the perfect one!",
@@ -1615,9 +1615,13 @@ function initAIChat() {
             
         } catch (error) {
             console.error('AI API Error:', error);
-            return lang() === 'cz' 
-                ? 'Omlouváme se, došlo k problému. Kontaktujte nás prosím přímo: +420 735 103 830 📞'
-                : 'Sorry, there was an issue. Please contact us directly: +420 735 103 830 📞';
+            if (lang() === 'ua') {
+                return 'Шукачу пригод, сталася технічна пауза. Будь ласка, звʼяжіться з нашими менеджерами: 📞 +420 739 321 218, WhatsApp +420 735 103 830';
+            }
+            if (lang() === 'cz') {
+                return 'Hledači dobrodružství, omlouváme se za technickou pauzu. Kontaktujte prosím naše manažery: 📞 +420 739 321 218, WhatsApp +420 735 103 830';
+            }
+            return 'Adventure Seeker, there was a technical pause. Please contact our managers: 📞 +420 739 321 218, WhatsApp +420 735 103 830';
         }
     }
     
