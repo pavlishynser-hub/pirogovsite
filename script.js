@@ -621,16 +621,17 @@ function initReviewsSlider() {
 // ===== Fleet Image Sliders =====
 function initFleetSliders() {
     const sliders = document.querySelectorAll('.fleet-image-slider');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     sliders.forEach(slider => {
         const track = slider.querySelector('.slider-track');
-        const images = track.querySelectorAll('img');
+        const slides = track.querySelectorAll('img, video');
         const prevBtn = slider.querySelector('.slider-prev');
         const nextBtn = slider.querySelector('.slider-next');
         const dotsContainer = slider.querySelector('.slider-dots');
         
-        if (images.length <= 1) {
-            // Hide controls if only one image
+        if (slides.length <= 1) {
+            // Hide controls if only one slide
             if (prevBtn) prevBtn.style.display = 'none';
             if (nextBtn) nextBtn.style.display = 'none';
             return;
@@ -638,8 +639,18 @@ function initFleetSliders() {
         
         let currentIndex = 0;
         
+        slides.forEach((slide) => {
+            if (slide.tagName !== 'VIDEO') return;
+            slide.muted = true;
+            slide.defaultMuted = true;
+            slide.playsInline = true;
+            slide.setAttribute('playsinline', '');
+            slide.setAttribute('webkit-playsinline', '');
+            slide.loop = true;
+        });
+        
         // Create dots
-        images.forEach((_, index) => {
+        slides.forEach((_, index) => {
             const dot = document.createElement('button');
             dot.className = `slider-dot ${index === 0 ? 'active' : ''}`;
             dot.setAttribute('aria-label', `Slide ${index + 1}`);
@@ -653,6 +664,19 @@ function initFleetSliders() {
         
         const dots = dotsContainer.querySelectorAll('.slider-dot');
         
+        function syncVideos() {
+            slides.forEach((slide, i) => {
+                if (slide.tagName !== 'VIDEO') return;
+                if (i === currentIndex && !reduceMotion) {
+                    slide.muted = true;
+                    void slide.play().catch(() => undefined);
+                } else {
+                    slide.pause();
+                    if (Number.isFinite(slide.currentTime)) slide.currentTime = 0;
+                }
+            });
+        }
+        
         function goToSlide(index) {
             currentIndex = index;
             track.style.transform = `translateX(-${currentIndex * 100}%)`;
@@ -660,15 +684,16 @@ function initFleetSliders() {
             dots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === currentIndex);
             });
+            syncVideos();
         }
         
         function nextSlide() {
-            currentIndex = (currentIndex + 1) % images.length;
+            currentIndex = (currentIndex + 1) % slides.length;
             goToSlide(currentIndex);
         }
         
         function prevSlide() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
             goToSlide(currentIndex);
         }
         
@@ -710,6 +735,8 @@ function initFleetSliders() {
                 }
             }
         }
+        
+        syncVideos();
     });
 }
 
