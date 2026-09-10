@@ -1109,25 +1109,28 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(37, 211, 102, 0.1);
 }
 
-.contact-method.telegram {
+.telegram-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
     background: #0088cc;
-    border-color: #0088cc;
     color: #fff;
+    flex-shrink: 0;
+    transition: var(--transition-fast);
 }
 
-.contact-method.telegram .method-label,
-.contact-method.telegram .method-value {
-    color: #fff;
+.telegram-icon-btn svg {
+    width: 26px;
+    height: 26px;
 }
 
-.contact-method.telegram .method-icon {
-    background: rgba(255, 255, 255, 0.16);
-    color: #fff;
-}
-
-.contact-method.telegram:hover {
+.telegram-icon-btn:hover {
     background: #0077b5;
-    border-color: #0077b5;
+    color: #fff;
+    transform: translateY(-2px);
 }
 
 .method-icon {
@@ -1280,8 +1283,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .messenger-buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    align-items: center;
     gap: 16px;
     margin-top: 24px;
 }
@@ -1300,6 +1303,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .messenger-btn.whatsapp {
+    flex: 1;
     background: #25d366;
     color: white;
 }
@@ -1822,25 +1826,8 @@ h1, h2, h3, h4, h5, h6 {
     padding: 4px 0;
 }
 
-.footer-telegram-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin: 8px 0 12px;
-    padding: 10px 16px;
-    border-radius: 8px;
-    background: #0088cc;
-    color: #fff;
-    font-family: var(--font-display);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    transition: var(--transition-fast);
-}
-
-.footer-telegram-btn:hover {
-    background: #0077b5;
-    color: #fff;
+.footer-contact .telegram-icon-btn {
+    margin: 4px 0 12px;
 }
 
 .footer-bottom {
