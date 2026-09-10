@@ -1653,12 +1653,12 @@ function initAIChat() {
         } catch (error) {
             console.error('AI API Error:', error);
             if (lang() === 'ua') {
-                return 'Шукачу пригод, сталася технічна пауза. Будь ласка, звʼяжіться з нашими менеджерами: 📞 +420 739 321 218, WhatsApp +420 735 103 830';
+                return 'Шукачу пригод, сталася технічна пауза. Будь ласка, звʼяжіться з нашими менеджерами: Telegram @DMT_rev, WhatsApp +420 735 103 830';
             }
             if (lang() === 'cz') {
-                return 'Hledači dobrodružství, omlouváme se za technickou pauzu. Kontaktujte prosím naše manažery: 📞 +420 739 321 218, WhatsApp +420 735 103 830';
+                return 'Hledači dobrodružství, omlouváme se za technickou pauzu. Kontaktujte prosím naše manažery: Telegram @DMT_rev, WhatsApp +420 735 103 830';
             }
-            return 'Adventure Seeker, there was a technical pause. Please contact our managers: 📞 +420 739 321 218, WhatsApp +420 735 103 830';
+            return 'Adventure Seeker, there was a technical pause. Please contact our managers: Telegram @DMT_rev, WhatsApp +420 735 103 830';
         }
     }
     

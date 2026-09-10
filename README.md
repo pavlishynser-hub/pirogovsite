@@ -42,7 +42,8 @@ piroovsite/
 
 ## 📞 Contact Information
 
-- **Phones**: +420 776 384 669, +420 739 321 218
+- **Phones**: +420 776 384 669
+- **Telegram**: @DMT_rev
 - **WhatsApp**: +420 735 103 830
 - **Email**: 2015maxetavel@seznam.cz
 

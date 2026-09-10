@@ -28,13 +28,13 @@ async function sendTelegramNotification(message, userMessage) {
     }
 }
 
-const MANAGER_CONTACTS_UA = `📞 +420 739 321 218
+const MANAGER_CONTACTS_UA = `Telegram: @DMT_rev
 WhatsApp: +420 735 103 830`;
 
-const MANAGER_CONTACTS_CZ = `📞 +420 739 321 218
+const MANAGER_CONTACTS_CZ = `Telegram: @DMT_rev
 WhatsApp: +420 735 103 830`;
 
-const MANAGER_CONTACTS_EN = `📞 +420 739 321 218
+const MANAGER_CONTACTS_EN = `Telegram: @DMT_rev
 WhatsApp: +420 735 103 830`;
 
 export default async function handler(req, res) {
