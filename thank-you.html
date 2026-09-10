@@ -76,6 +76,37 @@
         .back:hover {
             background: rgba(255,215,0,0.2);
         }
+        .reach {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .tg-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            background: #0088cc;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .tg-btn:hover { background: #0077b5; }
+        .wa-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 20px;
+            border-radius: 8px;
+            background: #25d366;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -89,11 +120,10 @@
         <h1>Thank You!</h1>
         <p>Your request has been received. We will contact you within 30 minutes.</p>
         <p style="font-size: 14px; color: #555;">You can also reach us directly:</p>
-        <p style="color: #ccc; font-size: 15px;">
-            💬 <a href="https://t.me/DMT_rev" style="color: #ffd700; text-decoration: none;">Telegram @DMT_rev</a>
-            &nbsp;&nbsp;·&nbsp;&nbsp;
-            💬 <a href="https://wa.me/420735103830" style="color: #ffd700; text-decoration: none;">WhatsApp</a>
-        </p>
+        <div class="reach">
+            <a class="tg-btn" href="https://t.me/DMT_rev" target="_blank" rel="noopener">Telegram</a>
+            <a class="wa-btn" href="https://wa.me/420735103830" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
         <a href="/" class="back">← Back to Home</a>
     </div>
 </body>
