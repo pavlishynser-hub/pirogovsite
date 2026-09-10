@@ -467,7 +467,6 @@
                     <div class="fleet-image-slider">
                         <div class="slider-track">
                             <img src="images/bus1.jpg" alt="Ford Transit Custom 2022" loading="lazy">
-                            <video src="images/fleet-video-1.mp4?v=2" muted loop playsinline webkit-playsinline preload="metadata"></video>
                             <img src="images/ford-new1.jpg" alt="Ford Transit Custom 2022" loading="lazy">
                             <img src="images/ford-new2.jpg" alt="Ford Transit Custom Interior" loading="lazy">
                             <img src="images/ford-new3.jpg" alt="Ford Transit Custom Seats" loading="lazy">
@@ -513,7 +512,6 @@
                     <div class="fleet-image-slider">
                         <div class="slider-track">
                             <img src="images/bus2.jpg" alt="Renault Trafic 2025" loading="lazy">
-                            <video src="images/fleet-video-2.mp4?v=2" muted loop playsinline webkit-playsinline preload="metadata"></video>
                             <img src="images/renault-new1.jpg" alt="Renault Trafic 2025" loading="lazy">
                             <img src="images/renault-new2.jpg" alt="Renault Trafic 2025" loading="lazy">
                             <img src="images/bus2-extra.jpg" alt="Renault Trafic 2025" loading="lazy">
@@ -554,7 +552,6 @@
                     <div class="fleet-image-slider">
                         <div class="slider-track">
                             <img src="images/bus3.jpg" alt="Renault Trafic 2024" loading="lazy">
-                            <video src="images/fleet-video-3.mp4?v=2" muted loop playsinline webkit-playsinline preload="metadata"></video>
                             <img src="images/renault-new3.jpg" alt="Renault Trafic 2024" loading="lazy">
                             <video src="images/bus3-video.mp4" muted autoplay loop playsinline></video>
                             <img src="images/renault-interior1.jpg" alt="Renault Trafic Interior" loading="lazy">
@@ -594,7 +591,6 @@
                     <div class="fleet-image-slider">
                         <div class="slider-track">
                             <img src="images/bus2.jpg" alt="Renault Trafic 2025" loading="lazy">
-                            <video src="images/fleet-video-4.mp4?v=2" muted loop playsinline webkit-playsinline preload="metadata"></video>
                             <img src="images/bus2-extra.jpg" alt="Renault Trafic 2025" loading="lazy">
                             <img src="images/renault-interior1.jpg" alt="Renault Trafic Interior" loading="lazy">
                             <img src="images/renault-interior2.jpg" alt="Renault Trafic Interior 2" loading="lazy">
@@ -627,6 +623,121 @@
                         <p class="fleet-use" data-en="Perfect for: Transfers, Tours" data-cz="Ideální pro: Transfery, Výlety" data-ua="Ідеально для: Трансфери, Тури">Perfect for: Transfers, Tours</p>
                     </a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Behind the Journey -->
+    <section class="journey" id="journey">
+        <div class="container journey-wrap">
+            <div class="journey-copy">
+                <span class="journey-kicker" data-en="Behind the journey" data-cz="Za cestou" data-ua="За лаштунками подорожі">Behind the journey</span>
+                <h2 class="journey-title">
+                    <span data-en="SEE HOW WE" data-cz="PODÍVEJTE SE" data-ua="ПОДИВІТЬСЯ">SEE HOW WE</span>
+                    <span class="journey-title-accent" data-en="REALLY WORK" data-cz="JAK PRACUJEME" data-ua="ЯК МИ ПРАЦЮЄМО">REALLY WORK</span>
+                </h2>
+                <p class="journey-lead" data-en="Real cars. Real drivers. Real transfers across Europe." data-cz="Skutečná auta. Skuteční řidiči. Skutečné transfery po Evropě." data-ua="Реальні авто. Реальні водії. Реальні трансфери Європою.">Real cars. Real drivers. Real transfers across Europe.</p>
+            </div>
+            <div class="journey-nav" aria-label="Video gallery">
+                <button class="journey-nav-btn" id="journeyPrev" type="button" aria-label="Previous video">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+                </button>
+                <span class="journey-counter"><span id="journeyCurrent">02</span> / 04</span>
+                <button class="journey-nav-btn" id="journeyNext" type="button" aria-label="Next video">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+                </button>
+            </div>
+
+            <div class="journey-track" id="journeyTrack">
+                <article class="journey-card" data-index="0">
+                    <div class="journey-media">
+                        <video src="images/journey-1.mp4" poster="images/journey-1.jpg" playsinline webkit-playsinline preload="metadata"></video>
+                        <button class="journey-play" type="button" aria-label="Play video">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                        <div class="journey-meta">
+                            <span class="journey-name" data-en="Our Fleet" data-cz="Náš vozový park" data-ua="Наш автопарк">Our Fleet</span>
+                            <span class="journey-time">1:32</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="journey-card is-active" data-index="1">
+                    <div class="journey-media">
+                        <video src="images/journey-2.mp4" poster="images/journey-2.jpg" playsinline webkit-playsinline preload="metadata"></video>
+                        <button class="journey-play" type="button" aria-label="Play video">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                        <div class="journey-meta">
+                            <span class="journey-name" data-en="Hotel Pickup" data-cz="Hotelový transfer" data-ua="Трансфер до готелю">Hotel Pickup</span>
+                            <span class="journey-time">0:37</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="journey-card" data-index="2">
+                    <div class="journey-media">
+                        <video src="images/journey-3.mp4" poster="images/journey-3.jpg" playsinline webkit-playsinline preload="metadata"></video>
+                        <button class="journey-play" type="button" aria-label="Play video">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                        <div class="journey-meta">
+                            <span class="journey-name" data-en="City Transfer" data-cz="Městský transfer" data-ua="Міський трансфер">City Transfer</span>
+                            <span class="journey-time">1:24</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="journey-card" data-index="3">
+                    <div class="journey-media">
+                        <video src="images/journey-4.mp4" poster="images/journey-4.jpg" playsinline webkit-playsinline preload="metadata"></video>
+                        <button class="journey-play" type="button" aria-label="Play video">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                        <div class="journey-meta">
+                            <span class="journey-name" data-en="On the Road" data-cz="Na cestě" data-ua="У дорозі">On the Road</span>
+                            <span class="journey-time">0:23</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="journey-mobile-ui">
+                <span class="journey-counter journey-counter-mobile"><span id="journeyCurrentMobile">02</span> / 04</span>
+                <div class="journey-dots" id="journeyDots" aria-hidden="true"></div>
+                <span class="journey-swipe" data-en="Swipe to explore" data-cz="Posuňte pro další" data-ua="Гортайте далі">Swipe to explore</span>
+            </div>
+
+            <button class="journey-all" id="journeyWatchAll" type="button">
+                <span data-en="Watch all videos" data-cz="Přehrát všechna videa" data-ua="Дивитись усі відео">Watch all videos</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+            </button>
+
+            <div class="journey-points">
+                <a class="journey-point" href="#fleet">
+                    <span class="journey-point-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    </span>
+                    <span class="journey-point-text">
+                        <strong data-en="Real Fleet" data-cz="Skutečný vozový park" data-ua="Реальний автопарк">Real Fleet</strong>
+                        <em data-en="Modern, well-maintained vehicles" data-cz="Moderní, udržovaná vozidla" data-ua="Сучасні доглянуті авто">Modern, well-maintained vehicles</em>
+                    </span>
+                </a>
+                <a class="journey-point" href="#about">
+                    <span class="journey-point-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </span>
+                    <span class="journey-point-text">
+                        <strong data-en="Professional Drivers" data-cz="Profesionální řidiči" data-ua="Професійні водії">Professional Drivers</strong>
+                        <em data-en="Experienced. Discreet. Reliable." data-cz="Zkušení. Diskrétní. Spolehliví." data-ua="Досвідчені. Дискретні. Надійні.">Experienced. Discreet. Reliable.</em>
+                    </span>
+                </a>
+                <a class="journey-point" href="#contact">
+                    <span class="journey-point-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                    </span>
+                    <span class="journey-point-text">
+                        <strong data-en="24/7 Support" data-cz="Podpora 24/7" data-ua="Підтримка 24/7">24/7 Support</strong>
+                        <em data-en="We're always here for you." data-cz="Jsme tu pro vás vždy." data-ua="Ми завжди на зв'язку.">We're always here for you.</em>
+                    </span>
+                </a>
             </div>
         </div>
     </section>

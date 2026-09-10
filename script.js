@@ -1968,3 +1968,161 @@ function initVideoModal() {
 }
 
 initVideoModal();
+
+// ===== Behind the Journey gallery =====
+function initJourneyGallery() {
+    const section = document.querySelector('.journey');
+    if (!section) return;
+
+    const cards = Array.from(section.querySelectorAll('.journey-card'));
+    const track = document.getElementById('journeyTrack');
+    const dotsWrap = document.getElementById('journeyDots');
+    const currentEls = [
+        document.getElementById('journeyCurrent'),
+        document.getElementById('journeyCurrentMobile')
+    ].filter(Boolean);
+    const prevBtn = document.getElementById('journeyPrev');
+    const nextBtn = document.getElementById('journeyNext');
+    const watchAllBtn = document.getElementById('journeyWatchAll');
+    if (!cards.length || !track) return;
+
+    let active = 1;
+    let watchAll = false;
+
+    cards.forEach((card, index) => {
+        const video = card.querySelector('video');
+        const timeEl = card.querySelector('.journey-time');
+        const playBtn = card.querySelector('.journey-play');
+
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = `journey-dot${index === active ? ' is-on' : ''}`;
+        dot.setAttribute('aria-label', `Video ${index + 1}`);
+        dot.addEventListener('click', () => setActive(index, false));
+        dotsWrap.appendChild(dot);
+
+        if (video && timeEl) {
+            const stamp = () => {
+                if (!Number.isFinite(video.duration) || video.duration <= 0) return;
+                const total = Math.round(video.duration);
+                timeEl.textContent = `${Math.floor(total / 60)}:${String(total % 60).padStart(2, '0')}`;
+            };
+            video.addEventListener('loadedmetadata', stamp);
+            stamp();
+            video.addEventListener('ended', () => {
+                card.classList.remove('is-playing');
+                if (watchAll) {
+                    playCard((index + 1) % cards.length, true);
+                }
+            });
+        }
+
+        card.addEventListener('click', (event) => {
+            if (event.target.closest('.journey-play')) return;
+            if (card.classList.contains('is-playing')) {
+                pauseAll();
+                return;
+            }
+            setActive(index, false);
+        });
+
+        playBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            if (card.classList.contains('is-playing')) {
+                pauseAll();
+                return;
+            }
+            watchAll = false;
+            watchAllBtn.classList.remove('is-on');
+            playCard(index, false);
+        });
+    });
+
+    function updateChrome() {
+        const label = String(active + 1).padStart(2, '0');
+        currentEls.forEach((el) => { el.textContent = label; });
+        cards.forEach((card, index) => card.classList.toggle('is-active', index === active));
+        dotsWrap.querySelectorAll('.journey-dot').forEach((dot, index) => {
+            dot.classList.toggle('is-on', index === active);
+        });
+    }
+
+    function pauseAll() {
+        watchAll = false;
+        watchAllBtn.classList.remove('is-on');
+        cards.forEach((card) => {
+            const video = card.querySelector('video');
+            card.classList.remove('is-playing');
+            if (video) video.pause();
+        });
+    }
+
+    function setActive(index, fromScroll) {
+        active = (index + cards.length) % cards.length;
+        updateChrome();
+        if (!fromScroll && window.matchMedia('(max-width: 1024px)').matches) {
+            cards[active].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+    }
+
+    function playCard(index, keepWatchAll) {
+        if (!keepWatchAll) {
+            watchAll = false;
+            watchAllBtn.classList.remove('is-on');
+        }
+        setActive(index, false);
+        cards.forEach((card, i) => {
+            const video = card.querySelector('video');
+            if (!video) return;
+            if (i === index) {
+                video.muted = false;
+                video.volume = 1;
+                video.currentTime = 0;
+                card.classList.add('is-playing');
+                void video.play().catch(() => undefined);
+            } else {
+                video.pause();
+                card.classList.remove('is-playing');
+            }
+        });
+    }
+
+    prevBtn.addEventListener('click', () => {
+        pauseAll();
+        setActive(active - 1, false);
+    });
+    nextBtn.addEventListener('click', () => {
+        pauseAll();
+        setActive(active + 1, false);
+    });
+
+    watchAllBtn.addEventListener('click', () => {
+        watchAll = true;
+        watchAllBtn.classList.add('is-on');
+        playCard(active, true);
+    });
+
+    let scrollTick;
+    track.addEventListener('scroll', () => {
+        if (!window.matchMedia('(max-width: 1024px)').matches) return;
+        window.clearTimeout(scrollTick);
+        scrollTick = window.setTimeout(() => {
+            const mid = track.scrollLeft + track.clientWidth / 2;
+            let nearest = 0;
+            let best = Infinity;
+            cards.forEach((card, index) => {
+                const center = card.offsetLeft + card.offsetWidth / 2;
+                const dist = Math.abs(center - mid);
+                if (dist < best) {
+                    best = dist;
+                    nearest = index;
+                }
+            });
+            if (nearest !== active) setActive(nearest, true);
+        }, 80);
+    }, { passive: true });
+
+    updateChrome();
+}
+
+initJourneyGallery();
